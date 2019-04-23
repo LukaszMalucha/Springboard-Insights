@@ -1,0 +1,149 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Springboard Analytics</title>
+    <meta name="Description" content="Scraping and analyzing springboard courses with Django & pandas">
+    <meta name="KeyWords" content="data, analysis, springboard, pandas, flask, apriori">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/septellar.png' %}"/>
+
+    <!-- Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Materialize-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- FontAwesome Styles-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+          integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <!-- Custom Styles-->
+    <link href="{% static 'css/custom-styles.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/navbar.css' %}" rel="stylesheet"/>
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <!-- jQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Chart Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <!-- Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {% block extrahead %}{% endblock %} {% block head_js %} {% endblock head_js %}
+
+</head>
+
+<body>
+<div id="wrapper">
+    <!-- TOP NAVBAR -->
+    {% block navbar %}
+    <nav class="navbar navbar-default top-navbar" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand company-logo" href="{% url 'dashboard:dashboard' %}"><img class="company-logo"
+                                                                                        src="/static/img/logo-dark.png"
+                                                                                        alt="Logo"/></a>
+        </div>
+        <ul class="nav navbar-top-links navbar-right">
+            <li><a class="nav-link" href="{% url 'dashboard:rest' %}"><i class="fas fa-terminal"></i><b>REST Api</b></a>
+            </li>
+            <li><a class="nav-link" target="_blank" href="https://github.com/LukaszMalucha/Springboard-Insights"><i
+                    class="fab fa-github" style="color: #24292e;"></i> <b>GitHub</b></a></li>
+            <li><a class='dropdown-trigger nav-link' href='#' data-target='dropdown-user' id="user_dropdown"><i
+                    class="fas fa-caret-down" style="color: #919932;"></i><b>
+                {% if user.is_authenticated %}
+                {{ user }}
+                {% else %}
+                Login/Register
+                {% endif %}
+            </b></a></li>
+            <li><a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons" id="trigger">menu</i></a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- DROPDOWN -->
+    <ul id="dropdown-user" class="dropdown-content">
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'user:logout' %}"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+        {% else %}
+        <li><a href="{% url 'user:login' %}"><i class="fa fa-user fa-fw"></i> Log In</a></li>
+        <li><a href="{% url 'user:register' %}"><i class="fas fa-tasks"></i> Register</a></li>
+        {% endif %}
+    </ul>
+
+
+    <!-- MOBILE -->
+    <ul class="sidenav" id="mobile-demo">
+        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'dashboard:rest' %}"><i
+                class="fas fa-terminal"></i><b>REST Api</b></a></li>
+        <li><a class="dropdown-button waves-effect waves-dark" target="_blank" href=""><i class="fab fa-github"
+                                                                                          style="color: #24292e;"></i>
+            <b>GitHub</b></a></li>
+        {% if user.is_authenticated %}
+        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:logout' %}"><i
+                class="fas fa-sign-out-alt" style="color: #919932;"></i><b> Log Out {{ user.name }}</b></a></li>
+        {% else %}
+        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:login' %}"><i class="fa fa-user"
+                                                                                                style="color: #919932;"></i><b>
+            Log In</b></a></li>
+        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:register' %}"><i class="fas fa-tasks"
+                                                                                                   style="color: #919932;"></i><b>
+            Register</b></a></li>
+        {% endif %}
+
+    </ul>
+    {% endblock %}
+    <!-- PAGE-WRAPPER -->
+
+    <!-- PAGE-INDEX -->
+    <div id="page-index">
+        <div class="row header">
+            {% if messages %} {% for message in messages %} {% if message.tags == "success" %}
+            <div class="alert alert-success">
+                <div class="messages text-center">
+                    {{ message }}
+                </div>
+            </div>
+            {% else %}
+            <div class="alert alert-danger">
+                <div class="messages text-center">
+                    {{ message }}
+                </div>
+            </div>
+            {% endif %} {% endfor %}
+            {% else %}
+
+            {% endif %}
+        </div>
+
+        {% block content %} {% endblock %}
+
+    </div>
+    <!-- PAGE-INDEX -->
+</div>
+<!-- /. WRAPPER  -->
+<div class="footer">
+    <p><a target="_blank" href="https://www.freeprivacypolicy.com/privacy/view/9b972ff9a2aaeda03f07216c15625791/">Privacy
+        Policy</a> • © 2019 - 2020 www.unflasked.com - All Rights Reserved • Powered by Septellar &trade;</p>
+</div>
+<!-- JS Scripts-->
+
+<!-- Bootstrap Js -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+<!-- Materialize Js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<!-- Custom Js -->
+<script src="{% static 'js/custom-scripts.js' %}"></script>
+
+</body>
+
+</html>
