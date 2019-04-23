@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% load staticfiles %}
+{% block extrahead %}
+<link href="{% static 'css/data.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% load bootstrap_tags %} {% block content %}
+
+<div class="dashboard-cards">
+
+    <div class="row row-title">
+        {% if phase == 'mlb_ready'%}
+        <h3>Course Skills Correlations</h3>
+        {% else %}
+        <h3 style="color:red">Dataset Missing - Finish the preprocessing steps first</h3>
+        {% endif %}
+        <p><i class="fas fa-project-diagram"></i> Example of Data Mining technique with an use of Apriori algorithm.</p>
+    </div>
+    <div class="row row-cards">
+        {% for element in apriori_rules %}
+        <div class="col-md-4">
+            <div class="card card-rule">
+                <div class="card-content white-text rule-text">
+                    <span class="card-title chance">There is {{ element.1 }}% Chance</span>
+                    <p>That if course teaches <b>{{ element.0 }}</b> you'll also learn <b>{{ element.2 }}</b></p>
+                </div>
+                <div class="card-action card-params">
+                    <a>Support: <b>{{element.3}}</b></a>
+                    <a>Lift: <b>{{element.4}}</b></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+</div>
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large light-green darken-2" href="{% url 'dashboard:dashboard' %}">
+    <i class="large material-icons">exit_to_app</i>
+  </a>
+</div>
+
+{% endblock %}

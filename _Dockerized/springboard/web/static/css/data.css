@@ -1,0 +1,400 @@
+/*------------------------------------------------------------------------------
+    DATA PREPROCESSING
+------------------------------------------------------------------------------*/
+
+.dashboard-cards {
+    width: 90%;
+    margin: auto;
+}
+
+
+
+.row-title {
+    width: 70%;
+    margin: auto;
+    text-align: left;
+
+}
+
+.card.horizontal .card-image {
+    max-width: 25%;
+}
+
+.row-title h3 {
+    font-size: 30px;
+    font-weight: 700;
+    color: black;
+    font-family: 'Raleway';
+}
+
+.row-title p {
+    color: #868e96;
+    font-size: 12px;
+
+}
+
+.row-cards {
+    padding: 1% 0% 1% 0%;
+}
+
+.step-card {
+    width: 100%;
+    box-shadow: 0 3px 3px 0 #A9A9A9, 0 3px 1px -2px #838383, 0 1px 5px 0 #838383;
+    border-radius: 5px;
+    margin: 4% 2% 4% 2%;
+}
+
+.card .card-content {
+    padding: 16px;
+    text-align: left;
+    font-family: 'Raleway';
+    font-size: 12px;
+
+}
+
+.card .card-content h5 {
+    margin-top: 5px;
+    font-family: 'Raleway';
+    font-weight: 700;
+    font-size: 1.2rem;
+
+}
+
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    color: #83ab41;
+    margin: auto;
+    padding: auto;
+    -webkit-transition: color .3s ease;
+    transition: color .3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
+    color: #6d8f36;
+}
+
+
+.card .card-image img {
+    border: none;
+    height: 100%;
+}
+
+
+.modal {
+    height: 700px;
+    max-height: 100%;
+    background-image: url('../../static/img/background_form.png');
+    background-size: cover;
+}
+
+.modal .modal-content {
+    background-color: transparent;
+}
+
+.modal-close:hover,
+.modal-close:active,
+.modal-close:focus {
+    background-color: transparent;
+}
+
+
+.modal-close {
+    width: 105%;
+    margin-left: -10px;
+    padding-right: 5%;
+    height: 50px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-color: transparent;
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+
+
+}
+
+
+.arrow {
+    color: white;
+}
+
+
+.description_card_mlb {
+    background-color: white;
+    border-style: solid;
+    border-color: #800000;
+    border-radius: 5px;
+    vertical-align: middle;
+    border-width: 0px;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    overflow: auto;
+}
+
+
+.description_card_mlb th,
+td {
+    font-size: 12px;
+    min-width: 25px;
+}
+
+.description_card_mlb h3 {
+    color: #8B0000;
+    font-size: 20px;
+    margin: 10px;
+}
+
+
+
+
+table {
+    background-color: white;
+    border-radius: 5px;
+    margin-left: 0px;
+}
+
+
+h2 {
+    color: #3f3f3f;
+    font-size: 20px;
+    margin: 5px;
+}
+
+
+
+.description_card {
+    background-color: white;
+    border-style: solid;
+    border-radius: 5px;
+    vertical-align: middle;
+    border-width: 0px;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    overflow:auto;
+}
+
+
+
+
+.description_card p {
+    color: #81892d;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 0px;
+    padding: 0px;
+}
+
+
+td {
+    font-size: 11px;
+}
+
+.btn-scraper {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    color: #83ab41;
+    margin-right: 24px;
+    -webkit-transition: color .3s ease;
+    transition: color .3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 0px;
+    font-family: 'Roboto';
+}
+
+.btn-scraper:hover, .btn-scraper:active, .btn-scraper:focus {
+    color: #6d8f36;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+ }
+
+ .phase-negative {
+    color: red !important;
+
+ }
+
+ .link {
+    color: #4267b2 !important;
+
+ }
+
+ .link:hover, .link:active,  .link:focus {
+    color: #23527c !important;
+ }
+
+/*------------------------------------------------------------------------------
+    STATISTICS
+------------------------------------------------------------------------------*/
+
+ .pyplot {
+    background-color: white;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 5px;
+    box-shadow: 0 3px 3px 0 #A9A9A9, 0 3px 1px -2px #6d6d6d, 0 1px 5px 0 #6d6d6d;
+    vertical-align: middle;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    height: 400px;
+    padding: 0px;
+}
+
+.pyplot h2 {
+    color: #8B0000;
+    font-size: 20px;
+    margin: 10px;
+}
+
+
+/*------------------------------------------------------------------------------
+    INSIGHTS
+------------------------------------------------------------------------------*/
+
+.card-rule {
+    box-shadow: 0 3px 3px 0 #A9A9A9, 0 3px 1px -2px #6d6d6d, 0 1px 5px 0 #6d6d6d;
+    border-radius: 5px;
+    width: 90%;
+}
+
+
+.course_title {
+
+    font-size: 0.8rem !important;
+    height: 26px;
+}
+
+
+.course_span {
+    display: ruby;
+}
+
+.course_info {
+
+    font-size: 14px !important;
+    font-weight: bold;
+}
+
+
+
+/*------------------------------------------------------------------------------
+    APRIORI
+------------------------------------------------------------------------------*/
+
+
+.card-rule {
+    background-color: #fafafa;
+}
+
+.chance {
+    text-align: center;
+    color: #4e79a7 !important;
+}
+
+
+
+.rule-text b {
+    color: #4e79a7 !important;
+}
+
+.card-params a {
+    color: black !important;
+    font-weight: normal !important;
+}
+
+.card-params b {
+    color: #4e79a7 !important;
+}
+
+
+
+/*------------------------------------------------------------------------------
+    MEDIA QUERIES
+------------------------------------------------------------------------------*/
+
+
+@media(max-width:1900px) {
+
+
+}
+
+
+@media(max-width:1700px) {
+
+    .col-lg-4 {
+        width: 50% ;
+    }
+
+}
+
+@media(min-width:992px) {
+.card.horizontal .card-image {
+    max-width: 50%;
+}
+}
+
+@media(max-width:992px) {
+
+    .step-card {
+    width: 100%;
+    }
+
+    .card .card-image img {
+    height: 100% !important;
+    }
+
+        .col-lg-4 {
+        width: 100% ;
+    }
+
+
+}
+
+
+
+
+@media(max-width:695px) {
+
+    .pyplot {
+        color: red;
+    }
+}
+
+
+@media(max-width:520px) {
+
+
+    tr, th, td {
+        font-size: 8px;
+    }
+
+
+
+
+
+    .row-title,
+    .row-cards {
+        width: 100%;
+    }
+
+
+}
+
+
+
+
+
+
