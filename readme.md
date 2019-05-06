@@ -1,7 +1,7 @@
 # Springboard Analytics
 
 
-#### [Visit the App](https://springboardanalytics1.herokuapp.com/)
+#### [Visit the App](https://springboardanalytics.herokuapp.com/)
 
 <br>
 
