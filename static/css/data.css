@@ -70,7 +70,7 @@
     transition: color .3s ease;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 
@@ -209,7 +209,7 @@ td {
     transition: color .3s ease;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 16px;
     padding: 0px;
     font-family: 'Jura', sans-serif;
 }
@@ -333,7 +333,19 @@ td {
 
 
 @media(max-width:1900px) {
+ .fixed-action-btn {
+    right: 60px;
+ }
 
+     .row-cards {
+    width: 96%;
+    text-align: center;
+    padding: auto;
+    }
+
+    .row-title {
+    width: 93%;
+    }
 
 }
 
@@ -352,7 +364,7 @@ td {
 }
 }
 
-@media(max-width:992px) {
+@media(max-width:1024px) {
 
     .step-card {
     width: 100%;

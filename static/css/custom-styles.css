@@ -103,10 +103,10 @@ a {
 .row-cards {
     width: 70%;
     text-align: center;
-    padding: 4% 0% 4% 0%;
-
-
+    padding: auto;
 }
+
+
 
 .card .card-image .card-title {
     color: black;

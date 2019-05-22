@@ -15,7 +15,6 @@
     <!-- Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
     <!-- Materialize-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- FontAwesome Styles-->
@@ -24,10 +23,6 @@
     <!-- Custom Styles-->
     <link href="{% static 'css/custom-styles.css' %}" rel="stylesheet"/>
     <link href="{% static 'css/navbar.css' %}" rel="stylesheet"/>
-    <!-- Google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <!-- jQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Chart Js -->
@@ -35,6 +30,20 @@
     <!-- Material Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     {% block extrahead %}{% endblock %} {% block head_js %} {% endblock head_js %}
+    <style>
+      @font-face {
+        font-family: 'Jura';
+        font-weight: 400 500;
+        src: url('{% static 'fonts/TTF/Jura-Medium.otf' %}');
+      }
+      @font-face {
+        font-family: 'Jura';
+        font-weight: bold 600;
+        src: url('{% static 'fonts/TTF/Jura-DemiBold.otf' %}');
+      }
+
+    </style>
+
 
 </head>
 
