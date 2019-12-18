@@ -8,6 +8,8 @@ body {
     margin: 0;
     padding-bottom: 0;
     background-color: white;
+    background-image: url('../../static/img/background.png');
+    background-size: cover;
 
 }
 
@@ -26,9 +28,8 @@ html {
     display: block;
     overflow: auto;
     position: relative;
-    top: 55px;
-    background-image: url('../../static/img/background.png');
-    background-size: cover;
+    top: 42px;
+
 
 }
 
@@ -73,7 +74,7 @@ html {
 
 .header {
     min-height: 72px;
-    margin: 10px;
+    margin: 0px;
 }
 
 a {
@@ -92,21 +93,18 @@ a {
     margin-top: 2%;
     margin-bottom: 10%;
     box-shadow: none;
-    width: 100%;
+    width: 80%;
+    margin: auto;
     min-height: 600px;
     display: block;
     overflow: auto;
 
-
-}
-
-.row-cards {
-    width: 70%;
-    text-align: center;
-    padding: auto;
 }
 
 
+.row-title-cards {
+    width: 90%;
+}
 
 .card .card-image .card-title {
     color: black;
@@ -136,7 +134,7 @@ a {
 }
 
 .card .card-content {
-    min-height: 155px;
+
 
 }
 
@@ -167,7 +165,7 @@ a {
     margin: 0;
     font-size: 12px;
     color: #868e96;
-    padding: 15px 0px;
+    padding: 12px 0px;
     text-align: center;
 }
 
@@ -195,13 +193,49 @@ a {
         font-size: 18px;
     }
 
+    .dashboard-cards {
+        width: 100%;
+    }
+
+    .row-title-cards {
+        width: 95%;
+    }
+
 }
 
+
+
+
+
+@media(max-width:1025px) {
+
+
+
+    .menu-card {
+        width: 95%;
+    }
+
+    .card .card-title {
+        font-size: 14px;
+    }
+
+    .card .card-content p {
+        font-size: 12px;
+    }
+
+}
 
 
 @media(max-width:520px) {
+    .menu-card {
+        width: 90%;
+    }
 
+    .card .card-title {
+        font-size: 16px;
+    }
+
+    .card .card-content p {
+        font-size: 14px;
+    }
 }
-
-
-

@@ -95,14 +95,12 @@
                                                                                           style="color: #24292e;"></i>
             <b>GitHub</b></a></li>
         {% if user.is_authenticated %}
-        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:logout' %}"><i
-                class="fas fa-sign-out-alt" style="color: #919932;"></i><b> Log Out {{ user.name }}</b></a></li>
+        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:logout' %}"><iclass="fas fa-sign-out-alt"></i>
+            <b> Log Out {{ user.name }}</b></a></li>
         {% else %}
-        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:login' %}"><i class="fa fa-user"
-                                                                                                style="color: #919932;"></i><b>
+        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:login' %}"><i class="fa fa-user"></i><b>
             Log In</b></a></li>
-        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:register' %}"><i class="fas fa-tasks"
-                                                                                                   style="color: #919932;"></i><b>
+        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:register' %}"><i class="fas fa-tasks"></i><b>
             Register</b></a></li>
         {% endif %}
 
