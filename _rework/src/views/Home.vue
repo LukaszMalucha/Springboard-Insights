@@ -1,10 +1,11 @@
 <template>
 <div class="row plain-element">
-  <div class="row row-banner">
+  <div class="row row-break">
 
   </div>
-  <br><br>
+
   <div class="dashboard-cards">
+
     <div class="row row-title-cards">
         <div class="col-md-3">
             <div class="card menu-card">
@@ -36,7 +37,6 @@
 
         </div>
         <div class="col-md-3">
-
             <div class="card menu-card">
                 <div class="card-image">
                     <img src="@/assets/img/insights.jpg" class="img responsive">
@@ -47,22 +47,20 @@
                 </div>
                 <button onclick="window.location=''" type="submit" class="btn btn-enter"><span>Continue <i class="far fa-arrow-alt-circle-right"></i></span></button>
             </div>
-
         </div>
         <div class="col-md-3">
-
             <div class="card menu-card">
                 <div class="card-image">
-                    <img src="@/assets/img/apriori.jpg" class="img responsive">
+                    <img src="@/assets/img/insights.jpg" class="img responsive">
                 </div>
                 <div class="card-content">
-                    <span class="card-title">Apriori Alogorithm</span>
-                    <p>Finding out course correlations with Apriori algorithm. </p>
+                    <span class="card-title">Courses Insights</span>
+                    <p>Presenting critical data from the latest course offer.</p>
                 </div>
                 <button onclick="window.location=''" type="submit" class="btn btn-enter"><span>Continue <i class="far fa-arrow-alt-circle-right"></i></span></button>
             </div>
-
         </div>
+
     </div>
 </div>
 </div>

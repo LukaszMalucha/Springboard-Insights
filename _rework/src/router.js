@@ -4,6 +4,8 @@ import Home from "./views/Home.vue";
 import NotFound from "./views/NotFound.vue";
 import Preprocessing from "./views/Preprocessing.vue";
 import CourseStatistics from "./views/CourseStatistics.vue";
+import FastestDiploma from "./views/FastestDiploma.vue"
+import FastestBsc from "./views/FastestBsc.vue"
 
 Vue.use(Router);
 
@@ -24,6 +26,16 @@ export default new Router({
       path: "/course-statistics",
       name: "course-statistics",
       component: CourseStatistics
+    },
+    {
+      path: "/fastest-diploma",
+      name: "fastest-diploma",
+      component: FastestDiploma
+    },
+    {
+      path: "/fastest-bsc",
+      name: "fastest-bsc",
+      component: FastestBsc
     },
     {
       path: "*",

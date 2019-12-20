@@ -1,14 +1,15 @@
 <template>
 <div class="row plain-element">
-  <div class="row header">
+  <RowHeader/>
+  <div class="row banner">
         <div class="col-xs-0 col-sm-0 col-md-3 col-lg-2 text-left plain-element">
-            <img src="@/assets/img/preprocessing.jpg" class="img responsive img-header">
+            <img src="@/assets/img/preprocessing-banner.jpg" class="img responsive img-banner">
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 plain-element">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 plain-element">
             <div class="row summary">
                  <div class="box">
                     <h5>Data Extraction </h5>
-                    <h6>Scrape Springboardcourses.ie course data with Beautifulsoup4. Fix date formats and featurize skill column with Pandas.
+                    <h6>Scrape Springboardcourses.ie course data with Beautifulsoup4. Then fix date formats and remove whitespaces.
                         Once it's ready, load extracted course data into connected database. </h6>
 
                     <form @submit.prevent="onSubmit">
@@ -22,6 +23,7 @@
         </div>
   </div>
   <div class="dashboard-cards">
+    <div class="row"></div>
     <div class="row row-cards">
       <div class="col-md-10 col-lg-10 plain-element"></div>
       <div class="col-md-2 col-lg-2 plain-element">
@@ -66,10 +68,12 @@
 
 <script>
 import { apiService } from "@/common/api.service.js";
+import RowHeader from "@/components/RowHeader.vue";
 
 export default {
   name: "Preprocessing",
   components: {
+    RowHeader
   },
   data() {
     return {
