@@ -69,7 +69,7 @@
 <script>
 import { apiService } from "@/common/api.service.js";
 import RowHeader from "@/components/RowHeader.vue";
-let endpoint = "/api/extract-data/";
+
 export default {
   name: "Preprocessing",
   components: {
@@ -84,10 +84,10 @@ export default {
   methods: {
     onSubmit() {
       document.getElementById("courseLoader").style.display = "block";
-
+      let endpoint = "/api/extract-data/";
       apiService(endpoint)
       .then(data => {
-        this.courseList = data.results;
+        this.courseList.push(...data.results);
         document.getElementById("courseLoader").style.display = "none";
       })
     },

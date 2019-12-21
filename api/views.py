@@ -25,25 +25,24 @@ class CourseViewSet(viewsets.ModelViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class ExtractDataView(views.APIView):
-    # serializer_class = serializers.CourseSerializer
-    # queryset = Course.objects.all()
+class ExtractDataViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.CourseSerializer
+    queryset = Course.objects.all()
 
-    def get(self, request):
-        # try:
-        courses = data_extractor()
-        # except:
-        #     return Response({'message': "Invalid Request - error while extracting website data"},
-        #                     status=status.HTTP_400_BAD_REQUEST)
-        # try:
-        #     database_upload(courses)
-        # except:
-        #     return Response({'message': "Invalid Request - error while uploading to database"},
-        #                     status=status.HTTP_400_BAD_REQUEST)
-        # queryset = self.queryset
+    def get_queryset(self):
+        try:
+            courses = data_extractor()
+        except:
+            return Response({'message': "Invalid Request - error while extracting website data"},
+                            status=status.HTTP_400_BAD_REQUEST)
+        try:
+            database_upload(courses)
+        except:
+            return Response({'message': "Invalid Request - error while uploading to database"},
+                            status=status.HTTP_400_BAD_REQUEST)
+        queryset = self.queryset
 
-        # return queryset.order_by('-title')
-        return Response({'results': courses})
+        return queryset.order_by('-title')
 
 
 class CourseStatisticsView(views.APIView):

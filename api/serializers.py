@@ -55,7 +55,7 @@ class AuthTokenSerializer(serializers.Serializer):
             raise serializers.ValidationError(message, code='authentication')
 
         attrs['user'] = user
-        return attrs  # overwritten validate function must return attrs
+        return attrs  ## overwritten validate function must return attrs
 
 
 class CourseSerializer(serializers.ModelSerializer):
