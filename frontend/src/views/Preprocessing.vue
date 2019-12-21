@@ -87,7 +87,7 @@ export default {
       let endpoint = "/api/extract-data/";
       apiService(endpoint)
       .then(data => {
-        this.courseList.push(...data.results);
+        this.courseList = data.results;
         document.getElementById("courseLoader").style.display = "none";
       })
     },
