@@ -4,7 +4,6 @@ import datetime
 import bs4 as bs
 from urllib.request import Request
 import urllib
-import nltk
 import requests
 from bs4 import BeautifulSoup
 from django.conf import settings
