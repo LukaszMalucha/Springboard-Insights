@@ -47,7 +47,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="course in filteredList" :key="course.pk">
+        <tr v-for="course in courseList" :key="course.id">
           <td class="col-course">{{ course.title }}</td>
           <td class="col-course text-center">{{ course.provider }}</td>
           <td class="text-center">{{ course.nfq }}</td>
@@ -70,6 +70,8 @@
 import { apiService } from "@/common/api.service.js";
 import RowHeader from "@/components/RowHeader.vue";
 
+let endpoint = "/api/extract-data/";
+
 export default {
   name: "Preprocessing",
   components: {
@@ -83,25 +85,14 @@ export default {
   },
   methods: {
     onSubmit() {
-      document.getElementById("courseLoader").style.display = "block";
-      let endpoint = "/api/extract-data/";
       apiService(endpoint)
       .then(data => {
+        window.console.log(data);
         this.courseList = data.results;
-        document.getElementById("courseLoader").style.display = "none";
       })
     },
   },
-  computed: {
-//  Search courses function
-    filteredList() {
-      return this.courseList.filter(course => {
-        return course.title.toLowerCase().includes(this.search.toLowerCase()) ||
-         course.provider.toLowerCase().includes(this.search.toLowerCase()) ||
-         course.nfq.toLowerCase().includes(this.search.toLowerCase())
-      })
-    }
-  },
+
   created() {
     document.title = "Course Data Extraction";
   }
