@@ -16,7 +16,7 @@ django-webpack-loader==0.6.0
 djangorestframework==3.9.1
 gunicorn==19.9.0
 lxml==4.3.4
-nltk==3.3
+nltk==3.4.5
 numpy==1.16.4
 pandas==0.25.3
 psycopg2==2.7.7
