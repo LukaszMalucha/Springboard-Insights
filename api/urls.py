@@ -3,14 +3,17 @@ from rest_framework.routers import DefaultRouter
 
 from api import views
 
-app_name = 'api'
+app_name = "api"
 
 router = DefaultRouter()
-router.register('courses', views.CourseViewSet, basename='courses')
+router.register("courses", views.CourseViewSet, basename="courses")
+router.register("extract-data", views.ExtractDataViewSet, basename="extract-data")
+
 
 urlpatterns = [
-    path('create/', views.CreateUserView.as_view(), name='create'),
-    path('authenticate/', views.CreateTokenView.as_view(), name='authenticate'),
-    path('my_account/', views.ManageUserView.as_view(), name='my_account'),
-    path('', include(router.urls)),
+    path("", include(router.urls)),
+    path("course-statistics", views.CourseStatisticsView.as_view(), name="course-statistics"),
+    path("fastest-diploma", views.FastestDiplomaView.as_view(), name="fastest-diploma"),
+    path("fastest-bachelor", views.FastestBachelorView.as_view(), name="fastest-bachelor"),
+    path("online-courses", views.OnlineCoursesView.as_view(), name="online-courses")
 ]

@@ -6,11 +6,13 @@ body {
 
 
 #page-index {
-    padding-top: 60px;
-    padding-bottom: 60px;
     background-image: none;
+}
 
-
+.form-container {
+    padding-top: 148px;
+    width: 70%;
+    margin: auto;
 }
 
 .form-signin {
@@ -109,4 +111,34 @@ blockquote {
     border: none;
     position: relative;
     top: -50px;
+}
+
+/*----------------------------------------------
+    MEDIA QUERIES
+------------------------------------------------*/
+
+
+@media(max-width:1900px) {}
+
+
+@media(max-width:1500px) {}
+
+@media(max-width:1500px) {
+    .form-signin {
+    max-width: 60%;
+    }
+
+     #page-index {
+    padding-top: 0px;
+    }
+
+
+}
+
+@media(max-width:859px) {
+    .form-signin {
+    max-width: 100%;
+    }
+
+
 }

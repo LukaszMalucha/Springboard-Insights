@@ -1,5 +1,5 @@
-{% load staticfiles %}
 <!DOCTYPE html>
+{% load staticfiles %}
 <html>
 
 <head>
@@ -54,17 +54,17 @@
     {% block navbar %}
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand company-logo" href="{% url 'dashboard:dashboard' %}"><img class="company-logo"
+            <a class="navbar-brand company-logo" href="/"><img class="company-logo"
                                                                                         src="{% static 'img/logo-dark.png' %}"
                                                                                         alt="Logo"/></a>
         </div>
         <ul class="nav navbar-top-links navbar-right">
-            <li><a class="nav-link" href="{% url 'dashboard:rest' %}"><i class="fas fa-terminal"></i><b>REST Api</b></a>
+            <li><a class="nav-link" href="/api/"><i class="fas fa-terminal"></i><b>REST Api</b></a>
             </li>
             <li><a class="nav-link" target="_blank" href="https://github.com/LukaszMalucha/Springboard-Insights"><i
-                    class="fab fa-github" style="color: #24292e;"></i> <b>GitHub</b></a></li>
+                    class="fab fa-github"></i> <b>GitHub</b></a></li>
             <li><a class='dropdown-trigger nav-link' href='#' data-target='dropdown-user' id="user_dropdown"><i
-                    class="fas fa-caret-down" style="color: #919932;"></i><b>
+                    class="fas fa-caret-down" ></i><b>
                 {% if user.is_authenticated %}
                 {{ user }}
                 {% else %}
@@ -89,19 +89,19 @@
 
     <!-- MOBILE -->
     <ul class="sidenav" id="mobile-demo">
-        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'dashboard:rest' %}"><i
-                class="fas fa-terminal"></i><b>REST Api</b></a></li>
+        <li><a class="dropdown-button waves-effect waves-dark" href="/api/"><i
+                class="fas fa-terminal"></i>REST Api</a></li>
         <li><a class="dropdown-button waves-effect waves-dark" target="_blank" href=""><i class="fab fa-github"
                                                                                           style="color: #24292e;"></i>
             <b>GitHub</b></a></li>
         {% if user.is_authenticated %}
-        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:logout' %}"><iclass="fas fa-sign-out-alt"></i>
-            <b> Log Out {{ user.name }}</b></a></li>
+        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:logout' %}"><i class="fas fa-sign-out-alt"></i>
+            Log Out {{ user.name }}</a></li>
         {% else %}
-        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:login' %}"><i class="fa fa-user"></i><b>
-            Log In</b></a></li>
-        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:register' %}"><i class="fas fa-tasks"></i><b>
-            Register</b></a></li>
+        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:login' %}"><i class="fa fa-user"></i>
+            Log In</a></li>
+        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:register' %}"><i class="fas fa-tasks"></i>
+            Register</a></li>
         {% endif %}
 
     </ul>
@@ -110,24 +110,7 @@
 
     <!-- PAGE-INDEX -->
     <div id="page-index">
-        <div class="row header">
-            {% if messages %} {% for message in messages %} {% if message.tags == "success" %}
-            <div class="alert alert-success">
-                <div class="messages text-center">
-                    {{ message }}
-                </div>
-            </div>
-            {% else %}
-            <div class="alert alert-danger">
-                <div class="messages text-center">
-                    {{ message }}
-                </div>
-            </div>
-            {% endif %} {% endfor %}
-            {% else %}
 
-            {% endif %}
-        </div>
 
         {% block content %} {% endblock %}
 
@@ -151,6 +134,9 @@
 
 <!-- Custom Js -->
 <script src="{% static 'js/custom-scripts.js' %}"></script>
+
+{% block js %}
+{% endblock %}
 
 </body>
 

@@ -36,18 +36,19 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 class Course(models.Model):
 
-    title = models.CharField(max_length=255)
-    provider = models.CharField(max_length=255)
-    award = models.CharField(max_length=255)
-    ects_credits = models.CharField(max_length=255)
-    mode = models.CharField(max_length=255)
-    deadline = models.CharField(max_length=255)
-    start_date = models.CharField(max_length=255)
-    end_date = models.CharField(max_length=255)
-    nfq = models.CharField(max_length=255)
-    ote_flag = models.CharField(max_length=255)
-    link = models.CharField(max_length=255)
-    skills = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, default="none")
+    provider = models.CharField(max_length=255, default="none")
+    award = models.CharField(max_length=255, default="none")
+    ects_credits = models.CharField(max_length=255, default="none")
+    mode = models.CharField(max_length=255, default="none")
+    deadline = models.CharField(max_length=255, default="none")
+    start_date = models.CharField(max_length=255, default="none")
+    end_date = models.CharField(max_length=255, default="none")
+    nfq = models.CharField(max_length=255, default="none")
+    ote_flag = models.CharField(max_length=255, default="none")
+    link = models.CharField(max_length=255, default="none")
+    skills = models.CharField(max_length=255, default="none")
+    delivery = models.CharField(max_length=255, default="none")
 
 
 

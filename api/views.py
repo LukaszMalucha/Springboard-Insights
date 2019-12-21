@@ -1,41 +1,17 @@
-from rest_framework import generics, authentication, permissions, viewsets, status
-from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.response import Response
-from rest_framework.settings import api_settings
-from api.serializers import UserSerializer, AuthTokenSerializer
+from rest_framework import viewsets, status, views
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
-from core.permissions import IsAdminOrReadOnly
-from core.models import Course
+from rest_framework.response import Response
+
 from api import serializers
-
-
-class CreateUserView(generics.CreateAPIView):
-    """Create a new user in the system"""
-    serializer_class = UserSerializer  # generic view - specify serializer you want to use only
-
-
-class CreateTokenView(ObtainAuthToken):
-    """Create a new auth token for user"""
-    serializer_class = AuthTokenSerializer
-    renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
-
-
-class ManageUserView(generics.RetrieveUpdateAPIView):
-    """Manage the authenticated user"""
-    serializer_class = UserSerializer
-    authentication_classes = (authentication.TokenAuthentication,)
-    permission_classes = (permissions.IsAuthenticated,)
-
-    def get_object(self):
-        """Retrieve and return authenticated user"""
-        return self.request.user
-
+from api.utils import data_extractor
+from db_manager.utils import database_upload
+from core.models import Course
+from core.permissions import IsAdminOrReadOnly
+from api.utils import statistical_data, fastest_diploma, fastest_bachelor, online_courses
 
 
 class CourseViewSet(viewsets.ModelViewSet):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated, IsAdminOrReadOnly)
     serializer_class = serializers.CourseSerializer
     queryset = Course.objects.all()
 
@@ -48,3 +24,57 @@ class CourseViewSet(viewsets.ModelViewSet):
             serializer.save()
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+class ExtractDataViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.CourseSerializer
+    queryset = Course.objects.all()
+
+    def get_queryset(self):
+        try:
+            courses = data_extractor()
+        except:
+            return Response({'message': "Invalid Request - error while extracting website data"},
+                            status=status.HTTP_400_BAD_REQUEST)
+        try:
+            database_upload(courses)
+        except:
+            return Response({'message': "Invalid Request - error while uploading to database"},
+                            status=status.HTTP_400_BAD_REQUEST)
+        queryset = self.queryset
+
+        return queryset.order_by('-title')
+
+
+class CourseStatisticsView(views.APIView):
+
+    def get(self, request):
+        statistics = statistical_data()
+
+        return Response(statistics)
+
+
+class FastestDiplomaView(views.APIView):
+
+    def get(self, request):
+        queryset = Course.objects.all().filter(nfq="8")
+        results = fastest_diploma(queryset)
+
+        return Response(results)
+
+
+class FastestBachelorView(views.APIView):
+
+    def get(self, request):
+        queryset = Course.objects.all()
+        results = fastest_bachelor(queryset)
+
+        return Response(results)
+
+
+class OnlineCoursesView(views.APIView):
+
+    def get(self, request):
+        queryset = Course.objects.all()
+        results = online_courses(queryset)
+
+        return Response(results)
