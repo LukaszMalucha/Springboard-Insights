@@ -5,17 +5,15 @@
 
 <br>
 
-![11](https://user-images.githubusercontent.com/26208598/56591245-436ff080-65e0-11e9-8d53-a8d2d25299ec.JPG)
-
+![1](https://user-images.githubusercontent.com/26208598/71312488-7b575e00-2423-11ea-9001-304de387c566.PNG)
 <br>
 ## App Description
 
 Django App that allows user to:
 
 1. Scrape and clean course data from Springboardcourses.ie.
-3. Visualize course data in order to get some useful insights.
-4. Apply machine learning apriori algorithm on gathered information.
-5. Extract course data from Django Postgres db with a handy RESTful Backend.
+2. Load course data to postgres db.
+2. Interact with data through Vue.js fronted or directly through Django REST backend.
 
 
 ## App Views
@@ -23,12 +21,11 @@ Django App that allows user to:
 #### Main Dashboard
 ##### `/`
 
- Main App Navigation
+Main App Navigation
 
 <br>
 
-![11](https://user-images.githubusercontent.com/26208598/56591245-436ff080-65e0-11e9-8d53-a8d2d25299ec.JPG)
-
+![1](https://user-images.githubusercontent.com/26208598/71312488-7b575e00-2423-11ea-9001-304de387c566.PNG)
 <br>
 
 #### User Handling
@@ -41,42 +38,40 @@ Django App that allows user to:
 ![2](https://user-images.githubusercontent.com/26208598/53902094-592d5480-4038-11e9-8000-704917c1da6a.jpg)
 
 #### Data Preprocessing
-##### `/data/`
+##### `/preprocessing`
 
- Web Crawler & data cleaners with modal vizualiztions.
+ Springboard data ETL.
 
 <br>
 
-![3](https://user-images.githubusercontent.com/26208598/53902551-4bc49a00-4039-11e9-8fa8-20a21e0995ac.jpg)
+![2](https://user-images.githubusercontent.com/26208598/71312489-7b575e00-2423-11ea-83cb-5a7de7cab667.PNG)
 
 #### Springboard Statistics
-##### `/data/statistics`
+##### `/course-statistics`
 
  Statistical data with Chart.js.
 
 <br>
 
-![4](https://user-images.githubusercontent.com/26208598/53902098-5b8fae80-4038-11e9-8fbc-54394cdc9203.jpg)
+![3](https://user-images.githubusercontent.com/26208598/71312490-7b575e00-2423-11ea-8fd8-bd7712209c3a.PNG)
 
+#### Online Degrees
+##### `/online-courses`
 
-#### Springboard Insights
-##### `/data/insights`
-
- Springboard.ie data mining.
-
-<br>
-
-![5](https://user-images.githubusercontent.com/26208598/53902099-5cc0db80-4038-11e9-9990-18d89e5479a5.png)
-
-#### Apriori Algorithm
-##### `/data/insights`
-
- Apriori algorithm data mining.
+ Latest Springboard.ie online degree offer.
 
 <br>
 
-![6](https://user-images.githubusercontent.com/26208598/53902104-5e8a9f00-4038-11e9-9bee-c3a4225d6eed.jpg)
+![4](https://user-images.githubusercontent.com/26208598/71312491-7beff480-2423-11ea-9b0a-a64cdb9fbd7c.PNG)
 
+#### Fastest Diplomas
+##### `/fastest-diploma`
+
+ Shorstest diploma courses offered by Springboard.
+
+<br>
+
+![5](https://user-images.githubusercontent.com/26208598/71312492-7beff480-2423-11ea-90a2-cd0d6561b0ed.PNG)
 
 ## Django REST Endpoints
 
@@ -99,20 +94,10 @@ Django App that allows user to:
 ![8](https://user-images.githubusercontent.com/26208598/53902109-60ecf900-4038-11e9-8eda-d26e51ea516a.jpg)
 
 
-
-### Travis CI:
-
-[![Build Status](https://travis-ci.com/LukaszMalucha/Springboard-Insights.svg?branch=master)](https://travis-ci.com/LukaszMalucha/Springboard-Insights)
-
-### Test Files:
-
-#### `/core/tests/`
-
-
 ## TOOLS, MODULES & TECHNIQUES
 
 ##### Web Development:
-Django RESTful | Docker | Heroku | Bootstrap | Materialize | AWS S3
+Django RESTful | Vue.js | Heroku | Bootstrap | Materialize | AWS S3
 
 ##### Database Development:
 Postgres | SQLite
@@ -121,7 +106,7 @@ Postgres | SQLite
 pandas | numpy | chart.js
 
 ##### Python – machine learning:
-sklearn | scipy | pandas | numpy | apyori
+sklearn | scipy | pandas | numpy
 
 ##### Testing
 Django.test
