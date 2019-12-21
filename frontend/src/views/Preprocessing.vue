@@ -59,7 +59,6 @@
         </tr>
         </tbody>
       </table>
-       <div class="loader" id="courseLoader"></div>
     </div>
   </div>
 </div>
