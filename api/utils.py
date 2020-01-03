@@ -1,19 +1,19 @@
-import csv
-import os
 import datetime
-import bs4 as bs
-from urllib.request import Request
+import os
 import urllib
-import requests
-from bs4 import BeautifulSoup
-from django.conf import settings
+from http.client import IncompleteRead
+from urllib.request import Request
+
+import bs4 as bs
 import pandas as pd
+from django.conf import settings
+
 from core.models import Course
 
 # FILE PATHS
 
 my_path = os.path.abspath(os.path.dirname(__file__))
-stopwords_path = os.path.join(settings.BASE_DIR, "db_manager/datasets/stopwords.txt")
+stopwords_path = os.path.join(settings.BASE_DIR, "api/datasets/stopwords.txt")
 
 
 # Date Cleaner
@@ -163,6 +163,24 @@ def data_extractor():
                         "ote_flag": ote_flag, "skill_list": skill_list, "link": link, "delivery": delivery})
 
     return courses
+
+
+def database_upload(course_list):
+    courses = Course.objects.all()
+    courses.delete()
+
+    for row in course_list:
+        try:
+            _, created = Course.objects.get_or_create(title=row['title'], provider=row['provider'], award=row['award'],
+                                                      ects_credits=row['ects_credits'], mode=row['mode'],
+                                                      deadline=row['deadline'], start_date=row['start_date'],
+                                                      end_date=row['end_date'], nfq=row['nfq'],
+                                                      ote_flag=row['ote_flag'], link=row['link'],
+                                                      skills=row['skill_list'], delivery=row['delivery']
+                                                      )
+        except:
+            pass
+
 
 
 def statistical_data():

@@ -1,14 +1,10 @@
 from rest_framework import viewsets, status, views
-from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api import serializers
-from api.utils import data_extractor
-from db_manager.utils import database_upload
-from core.models import Course
-from core.permissions import IsAdminOrReadOnly
+from api.utils import data_extractor, database_upload
 from api.utils import statistical_data, fastest_diploma, fastest_bachelor, online_courses
+from core.models import Course
 
 
 class CourseViewSet(viewsets.ModelViewSet):

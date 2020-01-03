@@ -101,7 +101,6 @@ export default {
           this.fillNfqChart();
           this.fillProvidersChart();
           this.fillCategoryChart();
-          window.console.log(this.this.lt50_dict)
 
         })
     },
