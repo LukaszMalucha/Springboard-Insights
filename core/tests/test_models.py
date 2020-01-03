@@ -168,7 +168,7 @@
 #             title="test",
 #             provider="test",
 #             award="test",
-#             ects_credits="test",
+#             ects_credits="12",
 #             mode="test",
 #             deadline="test",
 #             start_date="test",
