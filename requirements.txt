@@ -18,6 +18,7 @@ gunicorn==19.9.0
 lxml==4.3.4
 numpy==1.16.4
 pandas==0.25.3
+Pillow==5.4.1
 psycopg2==2.7.7
 requests==2.21.0
 scikit-learn==0.21.2
