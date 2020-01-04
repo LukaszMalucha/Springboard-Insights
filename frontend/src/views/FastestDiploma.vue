@@ -39,7 +39,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="course in courses" :key="course.pk">
+        <tr v-for="course in filteredList" :key="course.pk">
           <td class="col-course">{{ course[1]}}</td>
           <td class="col-course text-center">{{ course[2] }}</td>
           <td class="text-center">{{ course[15]}} Days</td>
@@ -69,7 +69,7 @@ export default {
   data() {
     return {
       search: "",
-      courses: []
+      courseList: []
     }
   },
   methods: {
@@ -77,7 +77,7 @@ export default {
       apiService(endpoint)
         .then(data => {
 
-          this.courses = data
+          this.courseList = data
         })
       }
    },
@@ -93,8 +93,8 @@ export default {
 //  Search courses function
     filteredList() {
       return this.courseList.filter(course => {
-        return course.title.toLowerCase().includes(this.search.toLowerCase()) ||
-               course.provider.toLowerCase().includes(this.search.toLowerCase())
+        return course[1].toLowerCase().includes(this.search.toLowerCase()) ||
+               course[2].toLowerCase().includes(this.search.toLowerCase())
       })
     }
   },
