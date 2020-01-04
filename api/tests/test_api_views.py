@@ -1,10 +1,11 @@
+from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIClient
-from core.models import Course
+
 from api.serializers import CourseSerializer
-from django.contrib.auth import get_user_model
+from core.models import Course
 
 COURSES_URL = reverse("api:courses-list")
 EXTRACT_DATA_URL = reverse("api:extract-data-list")

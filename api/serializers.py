@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from core.models import Course
 
+from core.models import Course
 
 
 class CourseSerializer(serializers.ModelSerializer):

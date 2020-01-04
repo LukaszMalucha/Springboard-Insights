@@ -2,8 +2,8 @@ from rest_framework import generics, authentication, permissions, views
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.response import Response
 from rest_framework.settings import api_settings
-from user.api.serializers import UserSerializer, AuthTokenSerializer
 
+from user.api.serializers import AuthTokenSerializer
 from user.api.serializers import UserSerializer
 
 

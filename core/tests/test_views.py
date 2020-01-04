@@ -1,6 +1,8 @@
 from django.test import TestCase, Client
 from django.test.utils import override_settings
+
 from core.views import IndexTemplateView
+
 
 class IndexViewTests(TestCase):
     """Test main view"""
