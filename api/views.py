@@ -28,14 +28,9 @@ class ExtractDataViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         try:
             courses = data_extractor()
-        except:
-            return Response({'message': "Invalid Request - error while extracting website data"},
-                            status=status.HTTP_400_BAD_REQUEST)
-        try:
             database_upload(courses)
         except:
-            return Response({'message': "Invalid Request - error while uploading to database"},
-                            status=status.HTTP_400_BAD_REQUEST)
+            pass
         queryset = self.queryset
 
         return queryset.order_by('-title')

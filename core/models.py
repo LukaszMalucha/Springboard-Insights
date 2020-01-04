@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
-
+import time
 from core.utils import content_file_name
 
 
@@ -68,9 +68,9 @@ class Course(models.Model):
     award = models.CharField(max_length=255, default="none")
     ects_credits = models.CharField(max_length=255, default="0")
     mode = models.CharField(max_length=255, default="none")
-    deadline = models.CharField(max_length=255, default="none")
-    start_date = models.CharField(max_length=255, default="none")
-    end_date = models.CharField(max_length=255, default="none")
+    deadline = models.CharField(max_length=255, default="1/1/2022")
+    start_date = models.CharField(max_length=255, default="1/1/2022")
+    end_date = models.CharField(max_length=255, default="1/1/2023")
     nfq = models.CharField(max_length=255, default="0")
     ote_flag = models.CharField(max_length=255, default="none")
     link = models.CharField(max_length=255, default="none")

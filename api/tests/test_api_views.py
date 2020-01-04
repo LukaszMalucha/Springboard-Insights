@@ -66,11 +66,27 @@ class ExtractDataViewTests(TestCase):
     def setUp(self):
         self.client = APIClient()
 
-    # def test_accessing_extact_data_view(self):
-    #     """Accessing extract data view"""
-    #     response = self.client.get(EXTRACT_DATA_URL)
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     self.assertTrue(response.data['count'] > 1)
+    def test_accessing_extract_data_view(self):
+        """Accessing extract data view"""
+        Course.objects.create(
+            title="test",
+            provider="test",
+            award="test",
+            ects_credits="12",
+            mode="test",
+            deadline="test",
+            start_date="test",
+            end_date="test",
+            nfq="test",
+            ote_flag="test",
+            link="test",
+            skills="test",
+            delivery="test",
+        )
+
+        response = self.client.get(EXTRACT_DATA_URL)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertTrue(response.data['count'] > 1)
 
 
 class CourseStatisticsViewTests(TestCase):
@@ -101,8 +117,15 @@ class CourseStatisticsViewTests(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['top_providers_dict'], {'test': 1})
 
+    def test_accessing_online_courses_empty_view(self):
+        """Accessing view with no matching query"""
+        Course.objects.create()
+        response = self.client.get(COURSE_STATISTICS_URL)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
 
 class FastestDiplomaViewTests(TestCase):
+    """Testing fastest diploma view functionality"""
 
     def setUp(self):
         self.client = APIClient()
@@ -129,8 +152,16 @@ class FastestDiplomaViewTests(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertTrue(len(response.data[0]) > 1)
 
+    def test_accessing_online_courses_empty_view(self):
+        """Accessing view with no matching query"""
+        Course.objects.create()
+        response = self.client.get(FASTEST_DIPLOMA_URL)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data, [])
+
 
 class FastestBachelorViewTests(TestCase):
+    """Testing fastest bachelor view functionality"""
 
     def setUp(self):
         self.client = APIClient()
@@ -156,3 +187,46 @@ class FastestBachelorViewTests(TestCase):
         response = self.client.get(FASTEST_BACHELOR_URL)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertTrue(len(response.data[0]) > 1)
+
+    def test_accessing_online_courses_empty_view(self):
+        """Accessing view with no matching query"""
+        Course.objects.create()
+        response = self.client.get(FASTEST_BACHELOR_URL)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data, [])
+
+
+class OnlineCoursesViewTests(TestCase):
+    """Testing online courses view functionality"""
+
+    def setUp(self):
+        self.client = APIClient()
+
+    def test_accessing_online_courses_view(self):
+        """Accessing online courses view"""
+
+        Course.objects.create(
+            title="Higher Bachelor in Data",
+            provider="Institute of Technology",
+            award="Higher Diploma",
+            ects_credits="12",
+            mode="Full Time",
+            deadline="2019/09/20",
+            start_date="2019/09/23",
+            end_date="2021/05/31",
+            nfq="8",
+            ote_flag="Yes",
+            link="test",
+            skills="test",
+            delivery="Online",
+        )
+        response = self.client.get(ONLINE_COURSES_URL)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertTrue(len(response.data[0]) > 1)
+
+    def test_accessing_online_courses_empty_view(self):
+        """Accessing view with no matching query"""
+        Course.objects.create()
+        response = self.client.get(ONLINE_COURSES_URL)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data, [])

@@ -41,7 +41,7 @@ body {
 
 h1,
 .page-header {
-    color: #662b61;
+    color: #83ab41;
     margin: 10px 0px 10px 0px;
     border: none;
 }
@@ -49,7 +49,7 @@ h1,
 
 
 .btn {
-    background-color: #662b61;
+    background-color: #83ab41;
     border-radius: 5px;
     font-weight: 600;
 }
@@ -68,7 +68,7 @@ primary:active:focus,
 .btn:hover,
 .btn:focus,
 .btn:active {
-    background-color: #582554;
+    background-color: #6d8f36;
 }
 
 .button-form {
@@ -108,7 +108,7 @@ btn-default:focus,
 .route:hover,
 .route:active,
 .route:focus {
-    background-color: #582554;
+    background-color: #6d8f36;
     color: white;
 }
 
@@ -137,8 +137,8 @@ nav {
 .pagination>.active>a,
 .pagination>.active>a:focus,
 .pagination>.active>a:hover {
-    background-color: #662b61;
-    border-color: #662b61;
+    background-color: #83ab41;
+    border-color: #83ab41;
 }
 
 .navbar .nav li a{

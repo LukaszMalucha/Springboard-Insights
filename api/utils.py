@@ -182,57 +182,65 @@ def database_upload(course_list):
             pass
 
 
-
 def statistical_data():
     dataset = pd.DataFrame(list(Course.objects.all().values()))
 
-    # top providers
-    occurence = dataset["provider"].value_counts()[:6]
-    top_providers_dict = occurence.to_dict()
+    if len(dataset.index) > 0:
 
-    # Delivery mode
-    dataset["less_than_50"] = dataset["ects_credits"].apply(
-        lambda x: "below 50 C" if int(x) < 50 else "over 50 C")
-    less_than_50_values = dataset["less_than_50"].value_counts()
-    lt50_dict = less_than_50_values.to_dict()
+        # top providers
+        occurence = dataset["provider"].value_counts()[:6]
+        top_providers_dict = occurence.to_dict()
 
-    # partime/ fulltime
-    mode_values = dataset["mode"].value_counts()
-    mode_dict = mode_values.to_dict()
+        # Delivery mode
+        dataset["less_than_50"] = dataset["ects_credits"].apply(
+            lambda x: "below 50 C" if int(x) < 50 else "over 50 C")
+        less_than_50_values = dataset["less_than_50"].value_counts()
+        lt50_dict = less_than_50_values.to_dict()
 
-    # NFQ
-    nfq_values = dataset["nfq"].value_counts()
-    nfq_dict = nfq_values.to_dict()
+        # partime/ fulltime
+        mode_values = dataset["mode"].value_counts()
+        mode_dict = mode_values.to_dict()
 
-    # Top popular categories
-    category_values = dataset["skills"].value_counts()[:6]
-    category_dict = category_values.to_dict()
+        # NFQ
+        nfq_values = dataset["nfq"].value_counts()
+        nfq_dict = nfq_values.to_dict()
 
-    stats_dict = {"top_providers_dict": top_providers_dict,
-                  "lt50_dict": lt50_dict,
-                  "nfq_dict": nfq_dict,
-                  "mode_dict": mode_dict,
-                  "category_dict": category_dict
-                  }
+        # Top popular categories
+        category_values = dataset["skills"].value_counts()[:6]
+        category_dict = category_values.to_dict()
+
+        stats_dict = {"top_providers_dict": top_providers_dict,
+                      "lt50_dict": lt50_dict,
+                      "nfq_dict": nfq_dict,
+                      "mode_dict": mode_dict,
+                      "category_dict": category_dict
+                      }
+    else:
+        stats_dict = {}
 
     return stats_dict
 
 
 def fastest_diploma(queryset):
     dataset = pd.DataFrame(list(queryset.values()))
-    diplomas = ["Diploma", "diploma"]
-    dataset["diploma"] = dataset["title"].apply(lambda x: 1 if any(w in x for w in diplomas) else 0)
-    dataset_diplomas = dataset[(dataset["diploma"] == 1)]
+    if len(dataset.index) > 0:
+        diplomas = ["Diploma", "diploma"]
+        dataset["diploma"] = dataset["title"].apply(lambda x: 1 if any(w in x for w in diplomas) else 0)
+        dataset_diplomas = dataset[(dataset["diploma"] == 1)]
 
-    # top 12 shortest diplomas
+        # top 12 shortest diplomas
+        if len(dataset_diplomas.index) > 0:
+            dataset_diplomas["start_date"] = pd.to_datetime(dataset_diplomas["start_date"]).dt.date
+            dataset_diplomas["end_date"] = pd.to_datetime(dataset_diplomas["end_date"]).dt.date
 
-    dataset_diplomas["start_date"] = pd.to_datetime(dataset_diplomas["start_date"]).dt.date
-    dataset_diplomas["end_date"] = pd.to_datetime(dataset_diplomas["end_date"]).dt.date
-
-    dataset_diplomas["duration"] = (dataset_diplomas["end_date"] - dataset_diplomas["start_date"]).astype(
-        "timedelta64[D]").astype(int)
-    dataset_diplomas = dataset_diplomas.sort_values(["duration"])[:12]
-    dataset_diplomas_list = dataset_diplomas.values.tolist()
+            dataset_diplomas["duration"] = (dataset_diplomas["end_date"] - dataset_diplomas["start_date"]).astype(
+                "timedelta64[D]").astype(int)
+            dataset_diplomas = dataset_diplomas.sort_values(["duration"])[:12]
+            dataset_diplomas_list = dataset_diplomas.values.tolist()
+        else:
+            dataset_diplomas_list = []
+    else:
+        dataset_diplomas_list = []
 
     return dataset_diplomas_list
 
@@ -244,14 +252,16 @@ def fastest_bachelor(queryset):
     dataset_bachelors = dataset[(dataset["bachelor"] == 1)]
 
     # top 12 shortest diplomas
+    if len(dataset_bachelors.index) > 0:
+        dataset_bachelors["start_date"] = pd.to_datetime(dataset_bachelors["start_date"]).dt.date
+        dataset_bachelors["end_date"] = pd.to_datetime(dataset_bachelors["end_date"]).dt.date
 
-    dataset_bachelors["start_date"] = pd.to_datetime(dataset_bachelors["start_date"]).dt.date
-    dataset_bachelors["end_date"] = pd.to_datetime(dataset_bachelors["end_date"]).dt.date
-
-    dataset_bachelors["duration"] = (dataset_bachelors["end_date"] - dataset_bachelors["start_date"]).astype(
-        "timedelta64[D]").astype(int)
-    dataset_bachelors = dataset_bachelors.sort_values(["duration"])[:12]
-    dataset_bachelors_list = dataset_bachelors.values.tolist()
+        dataset_bachelors["duration"] = (dataset_bachelors["end_date"] - dataset_bachelors["start_date"]).astype(
+            "timedelta64[D]").astype(int)
+        dataset_bachelors = dataset_bachelors.sort_values(["duration"])[:12]
+        dataset_bachelors_list = dataset_bachelors.values.tolist()
+    else:
+        dataset_bachelors_list = []
 
     return dataset_bachelors_list
 
@@ -260,11 +270,14 @@ def online_courses(queryset):
     dataset = pd.DataFrame(list(queryset.values()))
     dataset["online"] = dataset["delivery"].apply(lambda x: 1 if x == "Online" else 0)
     dataset_online = dataset[(dataset["online"] == 1)]
-    dataset_online["start_date"] = pd.to_datetime(dataset_online["start_date"]).dt.date
-    dataset_online["end_date"] = pd.to_datetime(dataset_online["end_date"]).dt.date
+    if len(dataset_online.index) > 0:
+        dataset_online["start_date"] = pd.to_datetime(dataset_online["start_date"]).dt.date
+        dataset_online["end_date"] = pd.to_datetime(dataset_online["end_date"]).dt.date
 
-    dataset_online["duration"] = (dataset_online["end_date"] - dataset_online["start_date"]).astype(
-        "timedelta64[D]").astype(int)
-    dataset_online_list = dataset_online.values.tolist()
+        dataset_online["duration"] = (dataset_online["end_date"] - dataset_online["start_date"]).astype(
+            "timedelta64[D]").astype(int)
+        dataset_online_list = dataset_online.values.tolist()
+    else:
+        dataset_online_list = []
 
     return dataset_online_list
