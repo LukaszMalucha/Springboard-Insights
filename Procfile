@@ -1,1 +1,0 @@
-web: gunicorn springboard_analytics.wsgi --log-file -
