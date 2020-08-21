@@ -26,7 +26,11 @@ Main App Navigation
 <br>
 
 ![1](https://user-images.githubusercontent.com/26208598/71312488-7b575e00-2423-11ea-9001-304de387c566.PNG)
+
 <br>
+
+-----------------
+
 
 #### User Handling
 ##### `/user/`
@@ -37,6 +41,10 @@ Main App Navigation
 
 ![2](https://user-images.githubusercontent.com/26208598/53902094-592d5480-4038-11e9-8000-704917c1da6a.jpg)
 
+<br>
+
+-----------------
+
 #### Data Preprocessing
 ##### `/preprocessing`
 
@@ -45,6 +53,10 @@ Main App Navigation
 <br>
 
 ![2](https://user-images.githubusercontent.com/26208598/71312489-7b575e00-2423-11ea-83cb-5a7de7cab667.PNG)
+
+<br>
+
+-----------------
 
 #### Springboard Statistics
 ##### `/course-statistics`
@@ -64,6 +76,10 @@ Main App Navigation
 
 ![4](https://user-images.githubusercontent.com/26208598/71312491-7beff480-2423-11ea-9b0a-a64cdb9fbd7c.PNG)
 
+<br>
+
+-----------------
+
 #### Fastest Diplomas
 ##### `/fastest-diploma`
 
@@ -72,6 +88,10 @@ Main App Navigation
 <br>
 
 ![5](https://user-images.githubusercontent.com/26208598/71312492-7beff480-2423-11ea-90a2-cd0d6561b0ed.PNG)
+
+<br>
+
+-----------------
 
 ## Django REST Endpoints
 
@@ -84,6 +104,10 @@ Main App Navigation
 
 ![7](https://user-images.githubusercontent.com/26208598/53902106-5fbbcc00-4038-11e9-9ed0-848d3e11c1da.png)
 
+<br>
+
+-----------------
+
 #### Courses Data
 ##### `/api/courses`
 
@@ -93,23 +117,38 @@ Main App Navigation
 
 ![8](https://user-images.githubusercontent.com/26208598/53902109-60ecf900-4038-11e9-8eda-d26e51ea516a.jpg)
 
+<br>
+
+-----------------
+
+### App Testing:
+
+##### Travis CI: [![Build Status](https://travis-ci.com/LukaszMalucha/Springboard-Insights.svg?branch=master)](https://travis-ci.com/LukaszMalucha/Springboard-Insights)
+##### `/api/tests/`
+##### `/core/tests/` 
+##### `/user/tests/`
+
+-----------------
 
 ## TOOLS, MODULES & TECHNIQUES
 
-##### Web Development:
-Django RESTful | Vue.js | Heroku | Bootstrap | Materialize | AWS S3
+##### Backend Development:
+Django RESTful
 
-##### Database Development:
-Postgres | SQLite
+##### Data Analysis
+pandas | numpy | sklearn | scipy
 
-##### Python & JS – data analysis & visualisation:
-pandas | numpy | chart.js
+##### Frontend Development
+Vue.js | Materialize | Chart.js
 
-##### Python – machine learning:
-sklearn | scipy | pandas | numpy
+##### Deployment
+Docker | Heroku | Travis CI | AWS S3
+
+##### Web Scraping:
+beautifulsoup4
 
 ##### Testing
-Django.test
+django.test | coverage
 
 
 
