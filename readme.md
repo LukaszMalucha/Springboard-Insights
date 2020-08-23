@@ -6,7 +6,9 @@
 <br>
 
 ![1](https://user-images.githubusercontent.com/26208598/71312488-7b575e00-2423-11ea-9001-304de387c566.PNG)
+
 <br>
+
 ## App Description
 
 Django App that allows user to:
