@@ -1,0 +1,258 @@
+/*------------------------------------------------------------------------------
+    DATA PREPROCESSING
+------------------------------------------------------------------------------*/
+
+.search-wrapper {
+    width: 90%;
+    margin-left: 10%;
+    margin-bottom: 0px;
+    text-align: right;
+}
+
+.search-wrapper label{
+    color: black;
+}
+
+.search-wrapper input[type="text"]:not(.browser-default) {
+  border-bottom: 1px solid #4ca74c;
+}
+
+.col-course {
+  max-width: 30%;
+  width: 30%;
+}
+
+.row-cards {
+  background: white;
+}
+
+
+.row-cards {
+    width: 100%;
+    margin: auto;
+}
+
+table {
+    background-color: white;
+    border-radius: 5px;
+    margin-left: 0px;
+}
+
+
+td {
+    font-size: 14px;
+    text-shadow: 1px 1px #e8e8e8;
+}
+
+
+/*------------------------------------------------------------------------------
+    STATISTICS
+------------------------------------------------------------------------------*/
+
+ .pyplot {
+    background-color: white;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 5px;
+    box-shadow: 0 3px 3px 0 #A9A9A9, 0 3px 1px -2px #6d6d6d, 0 1px 5px 0 #6d6d6d;
+    vertical-align: middle;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-right: 20px;
+    height: 400px;
+    padding: 0px;
+}
+
+.pyplot h2 {
+    color: #8B0000;
+    font-size: 20px;
+    margin: 10px;
+}
+
+/*------------------------------------------------------------------------------
+    LOADER
+------------------------------------------------------------------------------*/
+
+#courseLoader {
+  display: none;
+}
+
+.loader {
+  border: 12px solid #f3f3f3; /* Light grey */
+  border-top: 12px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  margin-top: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/*------------------------------------------------------------------------------
+    INSIGHTS
+------------------------------------------------------------------------------*/
+
+
+.course-card {
+    margin-bottom: 5%;
+    width: 90%;
+    margin-right: 6%;
+    margin-left: 0%;
+}
+
+.course-card .card-header {
+    width: 100%;
+}
+
+.course-card .card-image {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+.course-card h5 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #0077b5;
+    margin: 8px 0;
+    height: 30px;
+}
+
+.course-card .card-title {
+    padding-left: 3%;
+    padding-right: 3%;
+    width: 100%;
+
+
+}
+
+.course-card p {
+    font-size: 12px !important;
+}
+
+.course-card .card-content {
+    min-height: 150px;
+    height: 150px;
+    word-wrap: break-word;
+    padding: 12px;
+}
+
+.course-card .card-content p{
+  min-height: 20px;
+}
+
+.course-card .card-content b {
+    font-weight: normal;
+    text-transform: capitalize;
+}
+
+
+.course-card .card-content a {
+    color: #0073b1;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+.table-course {
+    border: none;
+    font-size: 12px;
+
+}
+
+.table > tbody > tr > td,
+.table-course tr,
+.table-course td {
+    border: none;
+    padding: 2px;
+}
+
+
+.table > tbody > tr >td  {
+    padding-left: 0px;
+    padding-top: 0px;
+
+}
+
+.table-course b {
+    font-weight: 600;
+    color: #003f67;
+}
+
+
+
+/*------------------------------------------------------------------------------
+    MEDIA QUERIES
+------------------------------------------------------------------------------*/
+
+
+@media(max-width:1900px) {
+     
+     .row-cards {
+        width: 100%;
+        text-align: center;
+        padding: 0px;
+    }
+
+    .row-title {
+        width: 90%;
+    }
+    
+}
+@media(max-width:1300px) {
+   
+}
+@media(max-width:1025px) {
+
+    .row-title {
+        width: 95%;
+    }
+    
+    td {
+      font-size: 12px;
+    }
+
+}
+
+
+
+
+@media(max-width:695px) {
+
+
+    tr, th, td  {
+      font-size: 10px;
+    }
+
+}
+
+
+@media(max-width:520px) {
+
+
+    tr, th, td {
+        font-size: 8px;
+    }
+
+
+    .row-title,
+    .row-cards {
+        width: 100%;
+    }
+
+ 
+}
+
+
+
+
+
+
