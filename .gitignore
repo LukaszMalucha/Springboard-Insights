@@ -5,4 +5,4 @@ __pycache__?
 env.py
 /*
 .idea/*
-springboard_analytics/.env
+*.env
