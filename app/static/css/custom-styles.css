@@ -3,7 +3,7 @@
 ------------------------------------------------*/
 
 body {
-    font-family: 'Jura', sans-serif;
+    font-family: 'Play', sans-serif;
     position: relative;
     margin: 0;
     padding-bottom: 0;
@@ -16,27 +16,22 @@ body {
 html {
     height: 100%;
     box-sizing: border-box;
+    overflow-y: scroll;
+    color: #3c4146;
 }
 
-
-#wrapper {
-    width: 100%;
-}
 
 #page-index {
     width: 100%;
     display: block;
     overflow: auto;
     position: relative;
-    top: 42px;
-
-
+    top: 40px;
 }
 
 #page-index a {
     text-decoration: none;
     outline: 0;
-    /*font-size: 10px;*/
 }
 
 .text-center {
@@ -44,7 +39,7 @@ html {
 }
 
 .btn {
-    font-family: 'Jura', sans-serif;
+    font-family: 'Play', sans-serif;
     color: white;
     background-color: #6ba546;
     border: none;

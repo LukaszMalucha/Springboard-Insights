@@ -8,7 +8,7 @@ import bs4 as bs
 import pandas as pd
 from django.conf import settings
 
-from core.models import Course
+from core.models import CourseModel
 
 # FILE PATHS
 

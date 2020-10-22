@@ -4,8 +4,8 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from api.serializers import CourseSerializer
-from core.models import Course
+from api.serializers import CourseModelSerializer
+from core.models import CourseModel
 
 COURSES_URL = reverse("api:courses-list")
 EXTRACT_DATA_URL = reverse("api:extract-data-list")

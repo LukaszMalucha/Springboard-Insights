@@ -4,12 +4,12 @@ from rest_framework.response import Response
 from api import serializers
 from api.utils import data_extractor, database_upload
 from api.utils import statistical_data, fastest_diploma, fastest_bachelor, online_courses
-from core.models import Course
+from core.models import CourseModel
 
 
 class CourseViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.CourseSerializer
-    queryset = Course.objects.all()
+    queryset = CourseModel.objects.all()
 
     def get_queryset(self):
         queryset = self.queryset
@@ -23,7 +23,7 @@ class CourseViewSet(viewsets.ModelViewSet):
 
 class ExtractDataViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.CourseSerializer
-    queryset = Course.objects.all()
+    queryset = CourseModel.objects.all()
 
     def get_queryset(self):
         try:
@@ -47,7 +47,7 @@ class CourseStatisticsView(views.APIView):
 class FastestDiplomaView(views.APIView):
 
     def get(self, request):
-        queryset = Course.objects.all().filter(nfq="8")
+        queryset = CourseModel.objects.all().filter(nfq="8")
         results = fastest_diploma(queryset)
 
         return Response(results)
@@ -65,7 +65,7 @@ class FastestBachelorView(views.APIView):
 class OnlineCoursesView(views.APIView):
 
     def get(self, request):
-        queryset = Course.objects.all()
+        queryset = CourseModel.objects.all()
         results = online_courses(queryset)
 
         return Response(results)

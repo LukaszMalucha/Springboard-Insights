@@ -3,134 +3,109 @@
 <html>
 
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Springboard Analytics</title>
-    <meta name="Description" content="Scraping and analyzing springboard courses with Django & pandas">
-    <meta name="KeyWords" content="data, analysis, springboard, pandas, flask, apriori">
-    <link rel="shortcut icon" type="image/png" href="{% static 'img/septellar.png' %}"/>
-
-    <!-- Material Icons-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Materialize-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- FontAwesome Styles-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
-          integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-    <!-- Custom Styles-->
-    <link href="{% static 'css/custom-styles.css' %}" rel="stylesheet"/>
-    <link href="{% static 'css/navbar.css' %}" rel="stylesheet"/>
-    <link href="{% static 'css/data.css' %}" rel="stylesheet"/>
-    <!-- jQuery-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Chart Js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-    <!-- Material Icons-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    {% block extrahead %}{% endblock %} {% block head_js %} {% endblock head_js %}
-    <style>
-      @font-face {
-        font-family: 'Jura';
-        font-weight: 400 500;
-        src: url('{% static 'fonts/TTF/Jura-Medium.otf' %}');
-      }
-      @font-face {
-        font-family: 'Jura';
-        font-weight: bold 600;
-        src: url('{% static 'fonts/TTF/Jura-DemiBold.otf' %}');
-      }
-
-    </style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Springboard Analytics</title>
+  <meta name="Description" content="Scraping and analyzing springboard courses with Django & pandas">
+  <meta name="KeyWords" content="data, analysis, springboard, pandas, flask, apriori">
+  <link rel="shortcut icon" type="image/png" href="{% static 'img/septellar.png' %}"/>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
+  <!-- Material Icons-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- FontAwesome Styles-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+        integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+  <!-- Custom Styles-->
+  <link href="{% static 'css/custom-styles.css' %}" rel="stylesheet"/>
+  <link href="{% static 'css/navbar.css' %}" rel="stylesheet"/>
+  <link href="{% static 'css/data.css' %}" rel="stylesheet"/>
+  {% block extrahead %}{% endblock %} {% block head_js %} {% endblock head_js %}
 
 
 </head>
 
 <body>
 <div id="wrapper">
-    <!-- TOP NAVBAR -->
-    {% block navbar %}
-    <nav class="navbar navbar-default top-navbar" role="navigation">
-        <div class="navbar-header">
-            <a class="navbar-brand company-logo" href="/"><img class="company-logo"
-                                                                                        src="{% static 'img/logo-dark.png' %}"
-                                                                                        alt="Logo"/></a>
-        </div>
-        <ul class="nav navbar-top-links navbar-right">
-            <li><a class="nav-link" href="/api/"><i class="fas fa-terminal"></i><b>REST Api</b></a>
-            </li>
-            <li><a class="nav-link" target="_blank" href="https://github.com/LukaszMalucha/Springboard-Insights"><i
-                    class="fab fa-github"></i> <b>GitHub</b></a></li>
-            <li><a class='dropdown-trigger nav-link' href='#' data-target='dropdown-user' id="user_dropdown"><i
-                    class="fas fa-caret-down" ></i><b>
-                {% if user.is_authenticated %}
-                {{ user }}
-                {% else %}
-                Login/Register
-                {% endif %}
-            </b></a></li>
-            <li><a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons" id="trigger">menu</i></a>
-            </li>
-        </ul>
-    </nav>
-
-    <!-- DROPDOWN -->
-    <ul id="dropdown-user" class="dropdown-content">
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'user:profile' %}"><i class="fas fa-sign-out-alt"></i> My Profile</a></li>
-        <li><a href="{% url 'user:logout' %}"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
-        {% else %}
-        <li><a href="{% url 'user:login' %}"><i class="fa fa-user fa-fw"></i> Log In</a></li>
-        <li><a href="{% url 'user:register' %}"><i class="fas fa-tasks"></i> Register</a></li>
-        {% endif %}
-    </ul>
-
-
-    <!-- MOBILE -->
-    <ul class="sidenav" id="mobile-demo">
-
-        <li><a class="dropdown-button waves-effect waves-dark" href="/api/"><i
-                class="fas fa-terminal"></i><b>REST Api</b></a></li>
-        <li><a class="dropdown-button waves-effect waves-dark" target="_blank"
-               href="https://www.lukaszmalucha.com"><i class="fab fa-github"></i> <b>GitHub</b></a>
-        </li>
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'user:profile' %}"><i class="fas fa-sign-out-alt"></i> My Profile</a></li>
-        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:logout' %}"><i
-                class="fas fa-sign-out-alt"></i><b>Log Out {{ user.name }}</b></a></li>
-        {% else %}
-        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:login' %}"><i
-                class="fa fa-user"></i><b> Log In</b></a></li>
-        <li><a class="dropdown-button waves-effect waves-dark" href="{% url 'user:register' %}"><i
-                class="fas fa-tasks"></i><b> Register</b></a></li>
-        {% endif %}
-    </ul>
-    {% endblock %}
-    <!-- PAGE-WRAPPER -->
-
-    <!-- PAGE-INDEX -->
-    <div id="page-index">
-
-
-        {% block content %} {% endblock %}
-
+  <!-- TOP NAVBAR -->
+  {% block navbar %}
+  <nav class="navbar navbar-default top-navbar" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <img src="{% static 'img/logo-dark.png' %}" alt="Logo"
+             class="img-logo"/>
+      </a>
     </div>
-    <!-- PAGE-INDEX -->
-</div>
-<!-- /. WRAPPER  -->
-<div class="footer">
-    <p><a target="_blank" href="https://www.freeprivacypolicy.com/privacy/view/9b972ff9a2aaeda03f07216c15625791/">Privacy
-        Policy</a> • © 2019 - 2020 www.unflasked.com - All Rights Reserved • Powered by Septellar &trade;</p>
-</div>
-<!-- JS Scripts-->
+    <ul class="nav navbar-top-links navbar-right">
+      <li><span><a class="nav-link" href="/api/">REST Api</a></span>
+      </li>
+      <li><span><a class="nav-link" target="_blank"
+                   href="https://github.com/LukaszMalucha/Springboard-Insights">GitHub</a></span>
+      </li>
+      {% if user.is_authenticated %}
+      <li>
+        <form method="post" action="{% url 'account_logout' %}">
+          {% csrf_token %}
+          <span><button class="nav-button">Logout</button></span>
+        </form>
+      </li>
+      {% else %}
 
-<!-- Bootstrap Js -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
+      <li>
+        <div class="dropdown">
+          <button class="dropbtn nav-button"><i class="fas fa-caret-down"></i>Login/Register</button>
+          <div id="myDropdown" class="drop-content">
+            <a href="{% url 'account_login' %}">Log In</a>
+            <a href="{% url 'account_signup' %}">Register</a>
+          </div>
+        </div>
+      </li>
+      {% endif %}
+    </ul>
+
+
+  </nav>
+  <div class="topnav">
+    <a class="navbar-brand" href="/">
+      <img src="{% static 'img/logo-dark.png' %}" alt="Logo"
+           class="img-logo"/>
+    </a>
+    <div id="myLinks">
+      <a href="/api/">REST Api</a>
+      <a target="_blank" href="https://github.com/LukaszMalucha/Springboard-Insights">GitHub</a>
+      {% if user.is_authenticated %}
+      <form method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        <span><button class="nav-button">Logout</button></span>
+      </form>
+
+      {% else %}
+      <a href="{% url 'account_login' %}">Log In</a>
+      <a href="{% url 'account_signup' %}">Register</a>
+      {% endif %}
+    </div>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  {% endblock %}
+
+
+  {% block content %} {% endblock %}
+
+
+  <!-- /. WRAPPER  -->
+  <div class="footer">
+    <p><a target="_blank" href="https://www.freeprivacypolicy.com/privacy/view/9b972ff9a2aaeda03f07216c15625791/">Privacy
+      Policy</a> • © 2019 - 2020 www.unflasked.com - All Rights Reserved • Powered by Septellar &trade;</p>
+  </div>
+</div>
+
+
+<!-- JS Scripts-->
 
 <!-- Materialize Js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
