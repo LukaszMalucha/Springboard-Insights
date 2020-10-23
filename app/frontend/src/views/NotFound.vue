@@ -2,10 +2,10 @@
 <div class="row plain-element">
   <RowHeader/>
   <div class="row banner">
-    <div class="col-xs-0 col-sm-0 col-md-3 col-lg-2 text-left plain-element">
+    <div class="col s0 m3 l2 text-left plain-element">
       <img src="https://springboard-analytics.s3-eu-west-1.amazonaws.com/static/img/404-banner.jpg" class="img responsive img-banner">
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 plain-element">
+    <div class="col s12 m8 l8 plain-element">
       <div class="row summary">
         <div class="box">
           <h5>404 - Page Not Found</h5>

@@ -7,7 +7,7 @@
   <div class="dashboard-cards">
 
     <div class="row row-title-cards">
-        <div class="col-md-3">
+        <div class="col m3">
             <div class="card menu-card">
                 <div class="card-image">
                     <img src="https://springboard-analytics.s3-eu-west-1.amazonaws.com/static/img/preprocessing.jpg" class="img responsive">
@@ -21,7 +21,7 @@
                   </router-link>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col m3">
             <div class="card menu-card">
                 <div class="card-image">
                     <img src="https://springboard-analytics.s3-eu-west-1.amazonaws.com/static/img/statistics.jpg" class="img responsive">
@@ -36,7 +36,7 @@
             </div>
 
         </div>
-        <div class="col-md-3">
+        <div class="col m3">
             <div class="card menu-card">
                 <div class="card-image">
                     <img src="https://springboard-analytics.s3-eu-west-1.amazonaws.com/static/img/online-degree.jpg" class="img responsive">
@@ -50,7 +50,7 @@
                 </router-link>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col m3">
             <div class="card menu-card">
                 <div class="card-image">
                     <img src="https://springboard-analytics.s3-eu-west-1.amazonaws.com/static/img/insights.jpg" class="img responsive">

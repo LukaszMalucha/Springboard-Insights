@@ -1,10 +1,10 @@
 <template>
   <div class="row header">
       <div class="row top-menu">
-        <div class="col-md-1 col-lg-2">
+        <div class="col m1 l2">
 
         </div>
-        <div class="col-sm-12 col-md-10 col-lg-8 plain-element">
+        <div class="col s12 m10 l8 plain-element">
           <ul>
             <li>
               <router-link :to="{name: 'preprocessing'}">Data Extraction</router-link>
@@ -18,10 +18,12 @@
            <li>
               <router-link :to="{name: 'fastest-diploma'}">The Fastest Diploma</router-link>
             </li>
+            <li>
               <router-link :to="{name: 'fastest-bsc'}">The Fastest Bsc.</router-link>
+            </li>
           </ul>
         </div>
-        <div class="col-md-2 col-lg-2">
+        <div class="col m2 l2">
 
         </div>
       </div>

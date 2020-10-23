@@ -54,6 +54,7 @@ html {
     width: 100%;
     text-align: right;
     font-size: 14px;
+    letter-spacing: 0.6px;
 }
 
 .btn-enter i {
@@ -109,6 +110,7 @@ a {
     margin: 0px;
     background: white;
     text-align: center;
+    margin-top: 80px;
 }
 
 .top-menu {
@@ -116,6 +118,7 @@ a {
     margin: auto;
     padding: 0px;
     color: #333333 !important;
+
 }
 
 .top-menu ul {
@@ -123,25 +126,30 @@ a {
     align-items: right;
     width: 100%;
     margin: auto;
-    margin-top: 30px;
 
 }
 
 .top-menu li {
     height: 100%;
-    margin-left: 3%;
-    margin-right: 3%;
+    margin-left: 1%;
+    margin-right: 1%;
 }
 
 .top-menu a {
-    font-size: 16px;
+    font-size: 14px;
     color: #292929;
-    text-shadow: 1px 1px #e5e5e5;
+    border: 1px solid rgba(0,0,0,0.4);
+    padding: 6px 18px;
+    border-radius: 20px;
+
+    letter-spacing: 0.4px;
+    background-color: #fafafa;
 }
 
 .top-menu a:hover {
-    color: #4ca74c;
-    text-shadow: 1px 1px #f0dee9;
+    background-color: #6bbb6b;
+    border: 1px solid #6bbb6b;
+    color: #ffffff;
 }
 
 /*------------------------------------------------------------------------------
@@ -161,7 +169,6 @@ a {
   font-weight: 800;
   margin: 10px 0px 5px 0px;
   color: black;
-  text-shadow: 1px 1px #dedede;
 }
 
 .banner h6 {
@@ -172,7 +179,6 @@ a {
 .banner p {
     color: #868e96;
     font-size: 12px;
-    text-shadow: 1px 1px #f7f7f7;
 }
 
 .img-banner {
@@ -284,19 +290,15 @@ a:hover {
 .card .card-content .card-title {
     color: #2d4b65;
     font-weight: bold;
-    text-shadow:  1px 1px  #d5e2ec;
+    letter-spacing: 0.6px;
 }
 
-.card .card-content {
-
-
-}
 
 .card .card-content p {
     color: black;
     font-size: 12px;
     min-height: 50px;
-    text-shadow: 0px 1px #ebebeb;
+    letter-spacing: 0.4px;
 }
 
 .card .card-title {
