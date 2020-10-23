@@ -17,11 +17,6 @@ stopwords_path = os.path.join(settings.BASE_DIR, "api/datasets/stopwords.txt")
 
 
 
-def update_done():
-    print("update done")
-    UpdateModel.objects.create()
-
-
 
 # Date Cleaner
 def date_cleaner(date):
@@ -58,8 +53,6 @@ def data_extractor():
 
     f = urllib.request.urlopen(req)
     soup = bs.BeautifulSoup(f, "lxml")
-
-    courses = []
 
     for course_div in soup.find_all("div", class_="panel panel-primary"):
 
@@ -148,44 +141,29 @@ def data_extractor():
             link = course_div.find("a")
             link = link.get("href")
 
+            CourseModel.objects.get_or_create(
+                title=title_div,
+                provider=provider,
+                award=award,
+                ects_credits=ects_credits,
+                mode=mode,
+                deadline=deadline,
+                start_date=start_date,
+                end_date=end_date,
+                nfq=nfq,
+                ote_flag=ote_flag,
+                link=link,
+                skills=skill_list,
+                delivery=delivery
+            )
+
 
         except Exception as e:
-            provider = None
-            award = None
-            delivery = None
-            ects_credits = None
-            mode = None
-            deadline = None
-            start_date = None
-            end_date = None
-            nfq = None
-            ote_flag = None
-            skill_list = None
-            link = None
-
-        courses.append({"title": title_div, "provider": provider, "award": award,
-                        "ects_credits": ects_credits, "mode": mode, "deadline": deadline,
-                        "start_date": start_date, "end_date": end_date, "nfq": nfq,
-                        "ote_flag": ote_flag, "skill_list": skill_list, "link": link, "delivery": delivery})
-
-    return courses
-
-
-def database_upload(course_list):
-    courses = CourseModel.objects.all()
-    courses.delete()
-
-    for row in course_list:
-        try:
-            _, created = CourseModel.objects.get_or_create(title=row['title'], provider=row['provider'], award=row['award'],
-                                                      ects_credits=row['ects_credits'], mode=row['mode'],
-                                                      deadline=row['deadline'], start_date=row['start_date'],
-                                                      end_date=row['end_date'], nfq=row['nfq'],
-                                                      ote_flag=row['ote_flag'], link=row['link'],
-                                                      skills=row['skill_list'], delivery=row['delivery']
-                                                      )
-        except:
             pass
+
+
+    UpdateModel.objects.create()
+    print("update done")
 
 
 def statistical_data():

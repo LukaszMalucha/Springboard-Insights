@@ -2,9 +2,9 @@ from rest_framework import viewsets, status, views
 from rest_framework.response import Response
 
 from api import serializers
-from api.utils import data_extractor, database_upload
+from api.utils import data_extractor
 from api.utils import statistical_data, fastest_diploma, fastest_bachelor, online_courses
-from core.models import Course
+from core.models import CourseModel
 
 
 class CourseViewSet(viewsets.ModelViewSet):
@@ -27,8 +27,8 @@ class ExtractDataViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         try:
-            courses = data_extractor()
-            database_upload(courses)
+            data_extractor()
+
         except:
             pass
         queryset = self.queryset
