@@ -42,6 +42,9 @@ table {
     margin-left: 0px;
 }
 
+#courseTable {
+  letter-spacing: 0.4px !important;
+}
 
 td {
     font-size: 14px;

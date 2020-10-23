@@ -8,7 +8,7 @@ import bs4 as bs
 import pandas as pd
 from django.conf import settings
 
-from core.models import CourseModel
+from core.models import CourseModel, UpdateModel
 
 # FILE PATHS
 
@@ -16,8 +16,14 @@ my_path = os.path.abspath(os.path.dirname(__file__))
 stopwords_path = os.path.join(settings.BASE_DIR, "api/datasets/stopwords.txt")
 
 
-# Date Cleaner
 
+def update_done():
+    print("update done")
+    UpdateModel.objects.create()
+
+
+
+# Date Cleaner
 def date_cleaner(date):
     """Clean DataTime columns helper function"""
     datetime_format = "%d/%m/%Y"
@@ -166,12 +172,12 @@ def data_extractor():
 
 
 def database_upload(course_list):
-    courses = Course.objects.all()
+    courses = CourseModel.objects.all()
     courses.delete()
 
     for row in course_list:
         try:
-            _, created = Course.objects.get_or_create(title=row['title'], provider=row['provider'], award=row['award'],
+            _, created = CourseModel.objects.get_or_create(title=row['title'], provider=row['provider'], award=row['award'],
                                                       ects_credits=row['ects_credits'], mode=row['mode'],
                                                       deadline=row['deadline'], start_date=row['start_date'],
                                                       end_date=row['end_date'], nfq=row['nfq'],
@@ -183,7 +189,7 @@ def database_upload(course_list):
 
 
 def statistical_data():
-    dataset = pd.DataFrame(list(Course.objects.all().values()))
+    dataset = pd.DataFrame(list(CourseModel.objects.all().values()))
 
     if len(dataset.index) > 0:
 

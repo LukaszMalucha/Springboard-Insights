@@ -1,6 +1,7 @@
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
-from django.db import models
+from datetime import datetime
+
 from django.contrib.auth.models import User
+from django.db import models
 
 from core.utils import content_file_name
 
@@ -43,7 +44,9 @@ class CourseModel(models.Model):
         return self.title
 
 
-
+class UpdateModel(models.Model):
+    status = models.CharField(max_length=254, default="OK")
+    updated = models.DateTimeField(default=datetime.today())
 
 
 
