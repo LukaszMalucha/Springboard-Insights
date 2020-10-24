@@ -1,6 +1,6 @@
 <template>
 <div class="row plain-element">
-  <RowHeader/>
+  <HeaderComponent/>
   <div class="row banner">
     <div class="col s0 m3 l2 text-left plain-element">
       <img src="https://springboard-analytics.s3-eu-west-1.amazonaws.com/static/img/404-banner.jpg" class="img responsive img-banner">
@@ -20,12 +20,12 @@
 
 
 <script>
-import RowHeader from "@/components/RowHeader.vue";
+import HeaderComponent from "@/components/HeaderComponent.vue";
 
 export default {
   name: "NotFound",
   components: {
-    RowHeader,
+    HeaderComponent,
   },
   data() {
     return {
