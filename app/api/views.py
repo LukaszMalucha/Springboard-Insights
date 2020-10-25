@@ -55,7 +55,7 @@ class FastestDiplomaView(views.APIView):
 class FastestBachelorView(views.APIView):
 
     def get(self, request):
-        queryset = Course.objects.all()
+        queryset = CourseModel.objects.all()
         results = fastest_bachelor(queryset)
 
         return Response(results)

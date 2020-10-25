@@ -164,7 +164,7 @@ class MyProfileModelTest(TestCase):
 class CourseModelTests(TestCase):
 
     def setUp(self):
-        self.course = Course.objects.create(
+        self.course = CourseModel.objects.create(
             title="test",
             provider="test",
             award="test",
@@ -179,11 +179,11 @@ class CourseModelTests(TestCase):
             skills="test",
             delivery="test",
         )
-        self.empty_course = Course.objects.create()
+        self.empty_course = CourseModel.objects.create()
 
     def tearDown(self):
-        self.course.delete()
-        self.empty_course.delete()
+        self.CourseModel.delete()
+        self.empty_CourseModel.delete()
 
     def test_creating_Course(self):
         self.assertTrue(self.course)

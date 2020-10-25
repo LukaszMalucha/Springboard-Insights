@@ -48,8 +48,12 @@ table {
 
 td {
     font-size: 14px;
-    text-shadow: 1px 1px #e8e8e8;
+    letter-spacing: 0.4px !important;
 }
+th {
+  cursor: pointer;
+}
+
 
 
 /*------------------------------------------------------------------------------
@@ -67,7 +71,7 @@ td {
     margin-top: 20px;
     margin-bottom: 0px;
     margin-right: 20px;
-    height: 400px;
+    height: 340px;
     padding: 0px;
 }
 
