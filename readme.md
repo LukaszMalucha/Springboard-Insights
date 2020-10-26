@@ -1,5 +1,4 @@
-# Springboard Analytics
-
+## Springboard Analytics
 
 #### [Visit the App](https://springboardanalytics.herokuapp.com/)
 
