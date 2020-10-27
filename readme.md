@@ -4,7 +4,7 @@
 
 <br>
 
-![1](https://user-images.githubusercontent.com/26208598/71312488-7b575e00-2423-11ea-9001-304de387c566.PNG)
+![5](https://user-images.githubusercontent.com/26208598/97291419-cd39f300-1841-11eb-8a3a-f004697925be.PNG)
 
 <br>
 
@@ -124,8 +124,6 @@ npm install --save-dev webpack-bundle-tracker@0.4.3
 
 npm install --save vue-chartjs chart.js  
 
-<br>
-<br>
 
 
 
