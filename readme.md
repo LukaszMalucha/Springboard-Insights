@@ -12,7 +12,7 @@
 
 Django App that allows user to:
 
-1. Scrape and clean course data from Springboardcourses.ie.
+1. Scrape and clean course data from Springboardcourses.ie - manually or with scheduled task
 2. Load course data to postgres db.
 2. Interact with data through Vue.js fronted or directly through Django REST backend.
 
@@ -26,7 +26,7 @@ Main App Navigation
 
 <br>
 
-![1](https://user-images.githubusercontent.com/26208598/71312488-7b575e00-2423-11ea-9001-304de387c566.PNG)
+![1](https://user-images.githubusercontent.com/26208598/97290937-25242a00-1841-11eb-9e28-5da7dac98fa2.PNG)
 
 <br>
 
@@ -36,24 +36,11 @@ Main App Navigation
 #### User Handling
 ##### `/user/`
 
- User Handling views - resgister, login, forgot password
+ User Handling views - register, login, forgot password
 
 <br>
 
-![2](https://user-images.githubusercontent.com/26208598/53902094-592d5480-4038-11e9-8000-704917c1da6a.jpg)
-
-<br>
-
------------------
-
-#### Data Preprocessing
-##### `/preprocessing`
-
- Springboard data ETL.
-
-<br>
-
-![2](https://user-images.githubusercontent.com/26208598/71312489-7b575e00-2423-11ea-83cb-5a7de7cab667.PNG)
+![2](https://user-images.githubusercontent.com/26208598/97290932-23f2fd00-1841-11eb-8a8d-3040970071ad.PNG)
 
 <br>
 
@@ -66,31 +53,7 @@ Main App Navigation
 
 <br>
 
-![3](https://user-images.githubusercontent.com/26208598/71312490-7b575e00-2423-11ea-8fd8-bd7712209c3a.PNG)
-
-#### Online Degrees
-##### `/online-courses`
-
- Latest Springboard.ie online degree offer.
-
-<br>
-
-![4](https://user-images.githubusercontent.com/26208598/71312491-7beff480-2423-11ea-9b0a-a64cdb9fbd7c.PNG)
-
-<br>
-
------------------
-
-#### Fastest Diplomas
-##### `/fastest-diploma`
-
- Shorstest diploma courses offered by Springboard.
-
-<br>
-
-![5](https://user-images.githubusercontent.com/26208598/71312492-7beff480-2423-11ea-90a2-cd0d6561b0ed.PNG)
-
-<br>
+![3](https://user-images.githubusercontent.com/26208598/97290934-248b9380-1841-11eb-8cb7-9d8360135738.PNG)
 
 -----------------
 
@@ -116,7 +79,7 @@ Main App Navigation
 
 <br>
 
-![8](https://user-images.githubusercontent.com/26208598/53902109-60ecf900-4038-11e9-8eda-d26e51ea516a.jpg)
+![4](https://user-images.githubusercontent.com/26208598/97290935-25242a00-1841-11eb-9ed5-46b43c420351.PNG)
 
 <br>
 
@@ -140,7 +103,7 @@ Django RESTful
 pandas | numpy | sklearn | scipy
 
 ##### Frontend Development
-Vue.js | Materialize | Chart.js
+Vue.js | Vuex | Materialize | Chart.js
 
 ##### Deployment
 Docker | Heroku | Travis CI | AWS S3
@@ -163,10 +126,6 @@ npm install --save vue-chartjs chart.js
 
 <br>
 <br>
-
-##### Thank you,
-
-Lukasz Malucha
 
 
 
