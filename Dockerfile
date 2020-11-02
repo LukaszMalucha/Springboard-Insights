@@ -13,4 +13,3 @@ COPY ./app/ /app
 RUN useradd user
 USER user
 
-ENTRYPOINT ["gunicorn -b :8000 springboard_analytics.wsgi"]
