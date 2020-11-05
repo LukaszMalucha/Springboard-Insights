@@ -87,7 +87,6 @@ Main App Navigation
 
 ### App Testing:
 
-##### Travis CI: [![Build Status](https://travis-ci.com/LukaszMalucha/Springboard-Insights.svg?branch=master)](https://travis-ci.com/LukaszMalucha/Springboard-Insights)
 ##### `/api/tests/`
 ##### `/core/tests/` 
 ##### `/user/tests/`
