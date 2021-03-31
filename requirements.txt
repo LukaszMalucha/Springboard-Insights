@@ -14,7 +14,7 @@ django-storages==1.7.1
 django-webpack-loader==0.6.0
 djangorestframework==3.9.1
 gunicorn==19.9.0
-lxml==4.3.4
+lxml==4.6.3
 numpy==1.16.4
 pandas==0.25.3
 Pillow==7.0.0
