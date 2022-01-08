@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: gunicorn springboard_analytics.wsgi:application
+  web: gunicorn springboard_analytics.asgi:application --workers 4 -k uvicorn.workers.UvicornWorker --bind :8000
