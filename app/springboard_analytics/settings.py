@@ -23,8 +23,15 @@ env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env()
 
 
-DEBUG = env("DEBUG")
-SECRET_KEY = env("SECRET_KEY")
+if "SECRET_KEY" in os.environ:
+    SECRET_KEY = env("SECRET_KEY")
+    DEBUG = env("DEBUG")
+
+else:
+    SECRET_KEY = "testing_ci"
+    DEBUG = True
+
+
 ALLOWED_HOSTS = ["*"]
 
 
