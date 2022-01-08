@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
+
     "corsheaders",
     "materializecssform",
     "storages",
@@ -89,6 +90,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                "django.template.context_processors.media",
             ],
         },
     },
@@ -196,24 +198,25 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = True
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
+
+#     # s3 static settings
+
+    STATIC_LOCATION = "static"
+    PUBLIC_MEDIA_LOCATION = "media"
+    MEDIA_LOCATION = "media"
+
+    AWS_DEFAULT_ACL = None
     AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
     AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
     AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
 
-    AWS_DEFAULT_ACL = None
+    STATICFILES_STORAGE = "springboard_analytics.storage_backends.StaticStorage"
+    DEFAULT_FILE_STORAGE = "springboard_analytics.storage_backends.PublicMediaStorage"
     AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
     AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400"}
-
-#     # s3 static settings
-#
-    STATIC_LOCATION = "static"
-#     STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/"
-#     STATICFILES_STORAGE = "springboard_analytics.storage_backends.StaticStorage"
-#
-    # s3 public media settings
-
-    PUBLIC_MEDIA_LOCATION = "media"
+    STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/"
     MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/"
-    DEFAULT_FILE_STORAGE = "springboard_analytics.storage_backends.PublicMediaStorage"
+
+
 
     # DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
