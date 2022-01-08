@@ -216,4 +216,4 @@ if not DEBUG:
     MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/"
     DEFAULT_FILE_STORAGE = "springboard_analytics.storage_backends.PublicMediaStorage"
 
-    DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
+    # DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
