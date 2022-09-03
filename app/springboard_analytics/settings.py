@@ -201,8 +201,8 @@ if not DEBUG:
     AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
     AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
 
-    STATICFILES_STORAGE = "portal.storage_backends.StaticStorage"
-    DEFAULT_FILE_STORAGE = "portal.storage_backends.PublicMediaStorage"
+    STATICFILES_STORAGE = "springboard_analytics.storage_backends.StaticStorage"
+    DEFAULT_FILE_STORAGE = "springboard_analytics.storage_backends.PublicMediaStorage"
     AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
     AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400"}
     STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/"
