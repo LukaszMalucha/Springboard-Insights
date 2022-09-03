@@ -37,4 +37,4 @@ USER admin
 
 EXPOSE 80
 
-CMD ["gunicorn", "springboard_analytics.wsgi", "--bind=0.0.0.0:80"]
+CMD ["gunicorn", "portal.wsgi", "--bind=0.0.0.0:80"]

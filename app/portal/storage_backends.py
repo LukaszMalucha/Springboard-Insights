@@ -12,3 +12,18 @@ class PublicMediaStorage(S3Boto3Storage):
     location = "media"
     default_acl = "private"
     file_overwrite = False
+
+# class AzureStaticStorage(AzureStorage):
+#     account_name = "saperastaticstorage"
+#     account_key = env("AZURE_KEY")
+#     azure_container = "static"
+#     expiration_secs = None
+#
+# class AzureMediaStorage(AzureStorage):
+#     account_name = "saperastaticstorage"
+#     account_key = env("AZURE_KEY")
+#     azure_container = "media"
+#     expiration_secs = None
+
+
+
