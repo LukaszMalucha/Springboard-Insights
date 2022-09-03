@@ -187,17 +187,6 @@ WEBPACK_LOADER = {
 
 # DEPLOYMENT
 if not DEBUG:
-    ALLOWED_HOSTS = ["springboardanalytics.herokuapp.com"]
-
-    SESSION_COOKIE_SECURE = True
-    SECURE_BROWSER_XSS_FILTER = True
-    SECURE_CONTENT_TYPE_NOSNIFF = True
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_SECONDS = 315336000
-    SECURE_REDIRECT_EXEMPT = []
-
-    SECURE_SSL_REDIRECT = True
-    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 
 #     # s3 static settings
@@ -206,13 +195,15 @@ if not DEBUG:
     PUBLIC_MEDIA_LOCATION = "media"
     MEDIA_LOCATION = "media"
 
+
     AWS_DEFAULT_ACL = None
     AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
     AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
     AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
+
+    STATICFILES_STORAGE = "portal.storage_backends.StaticStorage"
+    DEFAULT_FILE_STORAGE = "portal.storage_backends.PublicMediaStorage"
     AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
     AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400"}
     STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/"
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
     MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/"
