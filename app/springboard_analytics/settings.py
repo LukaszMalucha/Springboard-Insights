@@ -47,9 +47,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
+    "django_filters",
 
     "corsheaders",
-    "materializecssform",
     "storages",
 
     "rest_framework",
@@ -196,10 +196,10 @@ if not DEBUG:
     MEDIA_LOCATION = "media"
 
 
-    # AWS_DEFAULT_ACL = None
-    # AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
-    # AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
-    # AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
+    AWS_DEFAULT_ACL = None
+    AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
+    AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
     #
     # STATICFILES_STORAGE = "springboard_analytics.storage_backends.StaticStorage"
     # DEFAULT_FILE_STORAGE = "springboard_analytics.storage_backends.PublicMediaStorage"
