@@ -1,6 +1,6 @@
 ## Springboard Analytics
 
-#### [Visit the App](https://springboardanalytics.herokuapp.com/)
+#### [Visit the App](https://springboardanalytics.mycaprover.toutf.com/)
 
 <br>
 
